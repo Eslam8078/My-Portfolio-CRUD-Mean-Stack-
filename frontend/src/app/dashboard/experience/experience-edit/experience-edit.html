@@ -1,0 +1,89 @@
+<section class="edit-experience">
+  <div class="container">
+    <div class="header">
+      <h1>Edit Experience</h1>
+      <a routerLink="/dashboard/experience/list" class="back-btn">Back</a>
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Job Title</label>
+        <input formControlName="title" placeholder="e.g. MEAN Stack Developer" />
+
+        @if (myForm.get('title')?.touched && myForm.get('title')?.invalid) {
+          <small>Title is required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Company</label>
+        <input formControlName="company" placeholder="Company name" />
+
+        @if (myForm.get('company')?.touched && myForm.get('company')?.invalid) {
+          <small>Company is required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Period</label>
+        <input formControlName="period" placeholder="2024 - Present" />
+
+        @if (myForm.get('period')?.touched && myForm.get('period')?.invalid) {
+          <small>Period is required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input formControlName="location" placeholder="Cairo, Egypt" />
+
+        @if (myForm.get('location')?.touched && myForm.get('location')?.invalid) {
+          <small>Location is required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Highlights</label>
+
+        <div formArrayName="highlights">
+          @for (highlight of highlights.controls; track $index) {
+            <div class="highlight-row">
+              <input [formControlName]="$index" placeholder="Enter highlight" />
+
+              <button
+                type="button"
+                class="remove-btn"
+                (click)="removeHighlight($index)"
+                [disabled]="highlights.length === 1"
+              >
+                ×
+              </button>
+            </div>
+
+            @if (highlight.touched && highlight.invalid) {
+              <small>Highlight is required</small>
+            }
+          }
+        </div>
+
+        <button type="button" class="add-highlight-btn" (click)="addHighlight()">
+          + Add Highlight
+        </button>
+      </div>
+
+      <div class="actions">
+        <button type="submit" [disabled]="myForm.invalid">Update Experience</button>
+        <a routerLink="/dashboard/experience/list" class="cancel-btn">Cancel</a>
+      </div>
+
+      @if (successMessage) {
+        <p class="success">{{ successMessage }}</p>
+      }
+
+      @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+      }
+    </form>
+  </div>
+</section>
+

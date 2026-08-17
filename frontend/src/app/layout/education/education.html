@@ -1,0 +1,31 @@
+<section class="education">
+  <div class="education-container">
+    <h2>Education</h2>
+
+    @if (educations.length) {
+      <div class="education-list">
+        @for (education of educations; track education) {
+          <div class="education-card">
+            <h3>{{ education.degree }}</h3>
+            <h4>{{ education.university }}</h4>
+
+            <div class="education-info">
+              <span>{{ education.period }}</span>
+              <span>{{ education.location }}</span>
+            </div>
+
+            @if (education.description) {
+              <p>{{ education.description }}</p>
+            }
+          </div>
+        }
+      </div>
+    } @else if (loading) {
+      <p class="loading-state">Loading education...</p>
+    } @else if (errorMessage) {
+      <p class="error-state">{{ errorMessage }}</p>
+    } @else {
+      <p class="empty-state">No data available yet.</p>
+    }
+  </div>
+</section>

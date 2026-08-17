@@ -1,0 +1,171 @@
+<section class="messages-dashboard">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1>Messages</h1>
+        <p>Manage messages received from your portfolio visitors.</p>
+      </div>
+
+      @if (messages.length) {
+        <div class="message-count">
+          {{ messages.length }}
+          {{ messages.length === 1 ? 'Message' : 'Messages' }}
+        </div>
+      }
+    </div>
+
+    <!-- Success Message -->
+    @if (successMessage) {
+      <div class="alert success">
+        <span>✓</span>
+        {{ successMessage }}
+      </div>
+    }
+
+    <!-- Error Message -->
+    @if (errorMessage) {
+      <div class="alert error">
+        <span>!</span>
+        {{ errorMessage }}
+      </div>
+    }
+
+    <!-- Empty State -->
+    @if (!messages.length) {
+
+      <div class="empty-state">
+        <div class="empty-icon">
+          ✉
+        </div>
+
+        <h2>No messages found</h2>
+
+        <p>
+          You don't have any messages yet.
+        </p>
+      </div>
+
+    } @else {
+
+      <!-- Messages -->
+      <div class="messages-list">
+
+        @for (message of messages; track message._id) {
+
+          <article
+            class="message-card"
+            [class.unread]="message.unread"
+            (click)="markAsRead(message)"
+          >
+
+            <!-- Unread Indicator -->
+            @if (message.unread) {
+              <span class="unread-indicator"></span>
+            }
+
+            <!-- Message Header -->
+            <div class="message-header">
+
+              <div class="message-info">
+
+                <div class="title-row">
+
+                  <h3>
+                    {{ message.subject }}
+                  </h3>
+
+                  @if (message.unread) {
+                    <span class="unread-badge">
+                      Unread
+                    </span>
+                  }
+
+                </div>
+
+                <p class="sender">
+                  <span class="sender-name">
+                    {{ message.name }}
+                  </span>
+
+                  <span class="sender-email">
+                    &lt;{{ message.email }}&gt;
+                  </span>
+                </p>
+
+              </div>
+
+              <!-- Actions -->
+              <div
+                class="actions"
+                (click)="$event.stopPropagation()"
+              >
+
+                <!-- Reply -->
+                <a
+                  class="reply-btn"
+                  [href]="
+                    'mailto:' +
+                    message.email +
+                    '?subject=Re: ' +
+                    message.subject
+                  "
+                >
+                  <span>↩</span>
+                  Reply
+                </a>
+
+                <!-- Delete -->
+                <button
+                  type="button"
+                  class="delete-btn"
+                  (click)="deleteMessage(message._id!)"
+                >
+                  <span>🗑</span>
+                  Delete
+                </button>
+
+              </div>
+
+            </div>
+
+            <!-- Message Body -->
+            <div class="message-content">
+
+              <p class="message-body">
+                {{ message.message }}
+              </p>
+
+            </div>
+
+            <!-- Message Footer -->
+            <div class="message-footer">
+
+              @if (message.createdAt) {
+
+                <p class="date">
+                  <span>🕒</span>
+                  {{ message.createdAt | date: 'medium' }}
+                </p>
+
+              }
+
+              @if (!message.unread) {
+                <span class="read-status">
+                  ✓ Read
+                </span>
+              }
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    }
+
+  </div>
+</section>

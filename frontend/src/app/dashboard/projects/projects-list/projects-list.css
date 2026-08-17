@@ -1,0 +1,236 @@
+.projects-page {
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.add-btn {
+  padding: 11px 17px;
+  border-radius: 8px;
+  background: #14b8a6;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.add-btn:hover {
+  background: #0d9488;
+  transform: translateY(-2px);
+}
+
+/* Messages */
+
+.success,
+.error {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.success {
+  background: rgba(34, 197, 94, .08);
+  color: #4ade80;
+}
+
+.error {
+  background: rgba(239, 68, 68, .08);
+  color: #f87171;
+}
+
+.empty {
+  padding: 50px 20px;
+  border: 1px dashed #334155;
+  border-radius: 12px;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Grid */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+
+.project-card {
+  overflow: hidden;
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  transition: .25s ease;
+}
+
+.project-card:hover {
+  border-color: #334155;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+}
+
+/* Image */
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: #0f172a;
+  border-bottom: 1px solid #1f2937;
+}
+
+/* Body */
+
+.project-body {
+  padding: 22px;
+}
+
+.project-body h2 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.description {
+  margin: 0 0 18px;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Technologies */
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.tech-tag {
+  padding: 5px 9px;
+  border: 1px solid rgba(20, 184, 166, .2);
+  border-radius: 20px;
+  background: rgba(20, 184, 166, .08);
+  color: #2dd4bf;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Links */
+
+.links {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.links a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.links a:hover {
+  color: #93c5fd;
+}
+
+/* Actions */
+
+.actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid #1f2937;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 9px 15px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.edit-btn {
+  border: 1px solid rgba(59, 130, 246, .2);
+  background: rgba(59, 130, 246, .1);
+  color: #60a5fa;
+}
+
+.edit-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.delete-btn {
+  border: 1px solid rgba(239, 68, 68, .2);
+  background: rgba(239, 68, 68, .08);
+  color: #f87171;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-page {
+    padding: 25px 16px;
+  }
+
+  .header {
+    gap: 15px;
+  }
+
+  .header h1 {
+    font-size: 27px;
+  }
+
+  .project-image {
+    height: 190px;
+  }
+
+  .project-body {
+    padding: 20px;
+  }
+}

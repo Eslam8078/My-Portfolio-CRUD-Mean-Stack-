@@ -1,0 +1,61 @@
+<section class="projects-page">
+  <div class="container">
+    <div class="header">
+      <h1>Projects</h1>
+      <a routerLink="../add" class="add-btn">+ Add Project</a>
+    </div>
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (!projects.length) {
+      <p class="empty">No projects found.</p>
+    }
+
+    <div class="projects-grid">
+      @for (project of projects; track project._id) {
+        <div class="project-card">
+
+          <div class="project-body">
+            <h2>{{ project.title }}</h2>
+
+            <p class="description">{{ project.description }}</p>
+
+            @if (project.technologies?.length) {
+              <div class="tech-tags">
+                @for (tech of project.technologies; track tech) {
+                  <span class="tech-tag">{{ tech }}</span>
+                }
+              </div>
+            }
+
+            @if (project.github || project.livedemo) {
+              <div class="links">
+                @if (project.github) {
+                  <a [href]="project.github" target="_blank" rel="noopener"> GitHub </a>
+                }
+
+                @if (project.livedemo) {
+                  <a [href]="project.livedemo" target="_blank" rel="noopener"> Live Demo </a>
+                }
+              </div>
+            }
+
+            <div class="actions">
+              <a [routerLink]="['../edit', project._id]" class="edit-btn"> Edit </a>
+
+              <button type="button" class="delete-btn" (click)="deleteProject(project._id!)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,465 @@
+:host {
+  display: block;
+  width: 260px;
+  flex: 0 0 260px;
+}
+
+
+/* =========================================
+   Sidebar
+========================================= */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+
+  width: 260px;
+  height: 100vh;
+
+  padding: 24px 16px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #111827;
+
+  border-right: 1px solid #1f2937;
+
+  color: #f8fafc;
+}
+
+
+/* =========================================
+   Brand
+========================================= */
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+
+  padding: 8px 12px 24px;
+
+  border-bottom: 1px solid #1f2937;
+
+  color: #f8fafc;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.brand-accent {
+  color: #14b8a6;
+}
+
+.sidebar-brand-tag {
+  margin-left: auto;
+
+  padding: 4px 8px;
+
+  border: 1px solid rgba(20, 184, 166, 0.25);
+
+  border-radius: 6px;
+
+  background: rgba(20, 184, 166, 0.1);
+
+  color: #2dd4bf;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   Navigation
+========================================= */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-top: 24px;
+}
+
+
+/* =========================================
+   Navigation Link
+========================================= */
+
+.sidebar-nav a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 44px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border-radius: 8px;
+
+  color: #94a3b8;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.sidebar-nav a:hover {
+  background: #1e293b;
+
+  color: #f8fafc;
+
+  transform: translateX(3px);
+}
+
+
+/* Active */
+
+.sidebar-nav a.active {
+  background: rgba(20, 184, 166, 0.12);
+
+  color: #2dd4bf;
+}
+
+
+/* Active indicator */
+
+.sidebar-nav a.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  width: 3px;
+  height: 22px;
+
+  border-radius: 0 4px 4px 0;
+
+  background: #14b8a6;
+
+  box-shadow:
+    0 0 10px rgba(20, 184, 166, 0.4);
+}
+
+
+/* =========================================
+   Icons
+========================================= */
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+
+  margin-right: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #64748b;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* SVG */
+
+.nav-icon svg {
+  width: 18px;
+  height: 18px;
+
+  display: block;
+
+  stroke: currentColor;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* Hover icon */
+
+.sidebar-nav a:hover .nav-icon {
+  color: #2dd4bf;
+}
+
+.sidebar-nav a:hover .nav-icon svg {
+  transform: scale(1.08);
+}
+
+
+/* Active icon */
+
+.sidebar-nav a.active .nav-icon {
+  color: #14b8a6;
+}
+
+.sidebar-nav a.active .nav-icon svg {
+  filter: drop-shadow(
+    0 0 5px rgba(20, 184, 166, 0.35)
+  );
+}
+
+
+/* =========================================
+   Messages
+========================================= */
+
+.messages-link {
+  position: relative;
+}
+
+.messages-text {
+  flex: 1;
+}
+
+
+/* =========================================
+   Unread Badge
+========================================= */
+
+.message-badge {
+  min-width: 22px;
+  height: 22px;
+
+  padding: 0 6px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  box-shadow:
+    0 3px 10px rgba(239, 68, 68, 0.3);
+
+  animation: unreadPulse 2s infinite;
+}
+
+
+/* =========================================
+   Footer
+========================================= */
+
+.sidebar-footer-link {
+  display: flex;
+  align-items: center;
+
+  min-height: 44px;
+
+  margin-top: auto;
+
+  padding: 0 14px;
+
+  border-top: 1px solid #1f2937;
+
+  color: #64748b;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.sidebar-footer-link:hover {
+  color: #2dd4bf;
+
+  background: rgba(20, 184, 166, 0.04);
+}
+
+
+/* =========================================
+   Unread Animation
+========================================= */
+
+@keyframes unreadPulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(239, 68, 68, 0.35);
+  }
+
+  70% {
+    box-shadow:
+      0 0 0 5px rgba(239, 68, 68, 0);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+
+/* =========================================
+   Tablet
+========================================= */
+
+@media (max-width: 900px) {
+
+  :host {
+    width: 220px;
+    flex-basis: 220px;
+  }
+
+  .sidebar {
+    width: 220px;
+
+    padding: 20px 12px;
+  }
+
+  .sidebar-brand {
+    font-size: 21px;
+  }
+
+  .sidebar-nav a {
+    font-size: 13px;
+  }
+
+  .nav-icon {
+    margin-right: 8px;
+  }
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 700px) {
+
+  :host {
+    width: 100%;
+    flex: none;
+  }
+
+  .sidebar {
+    position: static;
+
+    width: 100%;
+
+    height: auto;
+    min-height: auto;
+
+    padding: 16px;
+
+    border-right: 0;
+
+    border-bottom: 1px solid #1f2937;
+  }
+
+  .sidebar-brand {
+    padding-bottom: 16px;
+  }
+
+  .sidebar-nav {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 6px;
+
+    margin-top: 16px;
+  }
+
+  .sidebar-nav a {
+    min-height: 42px;
+
+    justify-content: flex-start;
+
+    padding: 0 12px;
+  }
+
+  .sidebar-nav a.active::before {
+    display: none;
+  }
+
+  .nav-icon {
+    margin-right: 8px;
+  }
+
+  .message-badge {
+    margin-left: auto;
+
+    min-width: 20px;
+    height: 20px;
+  }
+
+  .sidebar-footer-link {
+    margin-top: 16px;
+
+    padding: 12px 10px 0;
+  }
+}
+
+
+/* =========================================
+   Small Mobile
+========================================= */
+
+@media (max-width: 400px) {
+
+  .sidebar {
+    padding: 12px;
+  }
+
+  .sidebar-brand {
+    font-size: 21px;
+  }
+
+  .sidebar-nav a {
+    font-size: 12px;
+  }
+
+  .nav-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}

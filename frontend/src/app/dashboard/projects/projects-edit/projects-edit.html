@@ -1,0 +1,88 @@
+<section class="edit-project">
+  <div class="container">
+    <div class="header">
+      <h1>Edit Project</h1>
+      <a routerLink="/dashboard/projects/list" class="back-btn">Back</a>
+    </div>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Title</label>
+        <input formControlName="title" placeholder="e.g. E-Commerce Website" />
+
+        @if (myForm.get('title')?.touched && myForm.get('title')?.invalid) {
+          <small>Title is required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea
+          rows="4"
+          formControlName="description"
+          placeholder="Short project description"
+        ></textarea>
+
+        @if (myForm.get('description')?.touched && myForm.get('description')?.invalid) {
+          <small>Description is required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Image URL</label>
+        <input formControlName="imageUrl" placeholder="http://localhost:3000/files/..." />
+      </div>
+
+      <div class="form-group">
+        <label>GitHub URL</label>
+        <input formControlName="github" placeholder="https://github.com/..." />
+      </div>
+
+      <div class="form-group">
+        <label>Live Demo URL</label>
+        <input formControlName="livedemo" placeholder="https://..." />
+      </div>
+
+      <div class="form-group">
+        <label>Technologies</label>
+
+        <div formArrayName="technologies">
+          @for (tech of technologies.controls; track $index) {
+            <div class="tech-row">
+              <input [formControlName]="$index" placeholder="e.g. Angular" />
+
+              <button
+                type="button"
+                class="remove-btn"
+                (click)="removeTech($index)"
+                [disabled]="technologies.length === 1"
+              >
+                ×
+              </button>
+            </div>
+
+            @if (tech.touched && tech.invalid) {
+              <small>Technology is required</small>
+            }
+          }
+        </div>
+
+        <button type="button" class="add-tech-btn" (click)="addTech()">+ Add Technology</button>
+      </div>
+
+      <div class="actions">
+        <button type="submit" [disabled]="myForm.invalid">Update Project</button>
+
+        <a routerLink="/dashboard/projects/list" class="cancel-btn">Cancel</a>
+      </div>
+
+      @if (successMessage) {
+        <p class="success">{{ successMessage }}</p>
+      }
+
+      @if (errorMessage) {
+        <p class="error">{{ errorMessage }}</p>
+      }
+    </form>
+  </div>
+</section>

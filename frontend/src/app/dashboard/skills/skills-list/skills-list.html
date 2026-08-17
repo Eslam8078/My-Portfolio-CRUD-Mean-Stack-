@@ -1,0 +1,47 @@
+<section class="skills-page">
+  <div class="container">
+    <div class="header">
+      <h1>Skills</h1>
+      <a routerLink="../add" class="add-btn">+ Add Skill</a>
+    </div>
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (!skills.length) {
+      <p class="empty">No skills found.</p>
+    }
+
+    @for (skill of skills; track skill._id) {
+      <div class="skill-card">
+        <div class="skill-card-top">
+          <h2>{{ skill.name }}</h2>
+          <span class="category-badge">{{ skill.category }}</span>
+        </div>
+
+        <div class="level-bar">
+          <div class="level-fill" [style.width.%]="skill.level"></div>
+        </div>
+
+        <p class="level-text">{{ skill.level }}%</p>
+
+        <div class="actions">
+          <a [routerLink]="['../edit', skill._id]" class="edit-btn">Edit</a>
+
+          <button
+            type="button"
+            class="delete-btn"
+            (click)="deleteSkill(skill._id!)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</section>

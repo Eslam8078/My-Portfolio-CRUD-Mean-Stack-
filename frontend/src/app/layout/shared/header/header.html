@@ -1,0 +1,76 @@
+<header class="header">
+  <div class="header-container">
+    <!-- Logo -->
+    <a routerLink="/" class="logo">
+      @if (home) {
+        <span>
+          {{ home.name.charAt(0) }}
+        </span>
+
+        {{ home.name.substring(1) }}
+      }
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+    <div class="mobile-actions">
+      <label for="menu-toggle" class="menu-button" aria-label="Toggle menu">
+        <span class="menu-icon"></span>
+      </label>
+    </div>
+
+    <nav class="desktop-menu">
+      <a routerLink="home" routerLinkActive="active"> Home </a>
+
+      <a routerLink="education" routerLinkActive="active"> Education </a>
+
+      <a routerLink="skills" routerLinkActive="active"> Skills </a>
+
+      <a routerLink="projects" routerLinkActive="active"> Projects </a>
+
+      <a routerLink="experience" routerLinkActive="active"> Experience </a>
+
+      <a routerLink="contact" routerLinkActive="active"> Contact </a>
+
+      <a routerLink="about" routerLinkActive="active"> About </a>
+
+      @if (home?.resumeUrl) {
+        <a
+          [href]="resumeUrl(home.resumeUrl)"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="resume-btn"
+        >
+          Resume
+        </a>
+      }
+    </nav>
+  </div>
+
+  <nav class="mobile-menu">
+    <a routerLink="home" routerLinkActive="active"> Home </a>
+
+    <a routerLink="education" routerLinkActive="active"> Education </a>
+
+    <a routerLink="skills" routerLinkActive="active"> Skills </a>
+
+    <a routerLink="projects" routerLinkActive="active"> Projects </a>
+
+    <a routerLink="experience" routerLinkActive="active"> Experience </a>
+
+    <a routerLink="contact" routerLinkActive="active"> Contact </a>
+
+    <a routerLink="about" routerLinkActive="active"> About </a>
+
+    @if (home?.resumeUrl) {
+      <a
+        [href]="resumeUrl(home.resumeUrl)"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resume-btn"
+      >
+        Resume
+      </a>
+    }
+  </nav>
+</header>

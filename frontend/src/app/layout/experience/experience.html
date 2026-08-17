@@ -1,0 +1,38 @@
+<section class="experience">
+  <div class="experience-container">
+    <h2>Experience</h2>
+
+    @if (experiences.length) {
+      <div class="experience-list">
+        @for (experience of experiences; track experience) {
+          <div class="experience-card">
+            <div class="experience-header">
+              <div>
+                <h3>{{ experience.title }}</h3>
+                <h4>{{ experience.company }}</h4>
+              </div>
+
+              <span class="period">{{ experience.period }}</span>
+            </div>
+
+            <p class="location">{{ experience.location }}</p>
+
+            @if (experience.highlights.length) {
+              <ul class="highlights">
+                @for (highlight of experience.highlights; track highlight) {
+                  <li>{{ highlight }}</li>
+                }
+              </ul>
+            }
+          </div>
+        }
+      </div>
+    } @else if (loading) {
+      <p class="loading-state">Loading experience...</p>
+    } @else if (errorMessage) {
+      <p class="error-state">{{ errorMessage }}</p>
+    } @else {
+      <p class="empty-state">No data available yet.</p>
+    }
+  </div>
+</section>

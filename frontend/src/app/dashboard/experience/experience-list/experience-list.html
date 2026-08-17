@@ -1,0 +1,44 @@
+<section class="experience-page">
+  <div class="container">
+    <div class="header">
+      <h1>Experience</h1>
+      <a routerLink="../add" class="add-btn">+ Add Experience</a>
+    </div>
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (!experiences.length) {
+      <p class="empty">No experience entries found.</p>
+    }
+
+    @for (exp of experiences; track exp._id) {
+      <div class="experience-card">
+        <h2>{{ exp.title }}</h2>
+        <h3>{{ exp.company }}</h3>
+        <p><strong>Period:</strong> {{ exp.period }}</p>
+        <p><strong>Location:</strong> {{ exp.location }}</p>
+
+        @if (exp.highlights?.length) {
+          <ul class="highlights">
+            @for (highlight of exp.highlights; track $index) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+        }
+
+        <div class="actions">
+          <a [routerLink]="['../edit', exp._id]" class="edit-btn">Edit</a>
+          <button type="button" class="delete-btn" (click)="deleteExperience(exp._id!)">
+            Delete
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section class="about">
+  @if (about) {
+    <div class="about-content">
+      <div class="about-image">
+        @if (about.imageUrl) {
+          <img [src]="imageUrl(about.imageUrl)" alt="About me">
+        }
+      </div>
+
+      <div class="about-text">
+        <h2>{{ about.title }}</h2>
+        <p>{{ about.description }}</p>
+      </div>
+    </div>
+  } @else if (loading) {
+    <p class="loading-state">Loading...</p>
+  } @else if (errorMessage) {
+    <p class="error-state">{{ errorMessage }}</p>
+  } @else {
+    <p class="empty-state">No data available yet.</p>
+  }
+</section>

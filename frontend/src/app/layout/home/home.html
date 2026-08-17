@@ -1,0 +1,44 @@
+<section class="home">
+  @if (home) {
+    <div class="home-content">
+      <div class="home-text">
+        <p class="intro">Hello, I'm</p>
+        <h1>{{ home.name }}</h1>
+        <h2>{{ home.title }}</h2>
+        <p class="description">{{ home.description }}</p>
+
+        <div class="home-buttons">
+          @if (home.resumeUrl) {
+            <a [href]="resumeUrl(home.resumeUrl)" target="_blank" rel="noopener noreferrer">
+              Download Resume
+            </a>
+          }
+
+          @if (home.github) {
+            <a [href]="home.github" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          }
+
+          @if (home.linkedin) {
+            <a [href]="home.linkedin" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          }
+        </div>
+      </div>
+
+      @if (home.imageUrl) {
+        <div class="home-image">
+          <img [src]="imageUrl(home.imageUrl)" [alt]="home.name">
+        </div>
+      }
+    </div>
+  } @else if (loading) {
+    <p class="loading-state">Loading...</p>
+  } @else if (errorMessage) {
+    <p class="error-state">{{ errorMessage }}</p>
+  } @else {
+    <p class="empty-state">No data available yet.</p>
+  }
+</section>

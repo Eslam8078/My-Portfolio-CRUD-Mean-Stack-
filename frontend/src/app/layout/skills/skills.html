@@ -1,0 +1,33 @@
+<section class="skills">
+  <div class="skills-container">
+    <h2>My Skills</h2>
+
+    @if (skills.length) {
+      <div class="skills-grid">
+        @for (skill of skills; track skill) {
+          <div class="skill-card">
+            <div class="skill-header">
+              <h3>{{ skill.name }}</h3>
+              <span>{{ skill.level }}%</span>
+            </div>
+
+            <p class="category">{{ skill.category }}</p>
+
+            <div class="progress">
+              <div
+                class="progress-bar"
+                [style.width.%]="skill.level"
+              ></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else if (loading) {
+      <p class="loading-state">Loading skills...</p>
+    } @else if (errorMessage) {
+      <p class="error-state">{{ errorMessage }}</p>
+    } @else {
+      <p class="empty-state">No data available yet.</p>
+    }
+  </div>
+</section>

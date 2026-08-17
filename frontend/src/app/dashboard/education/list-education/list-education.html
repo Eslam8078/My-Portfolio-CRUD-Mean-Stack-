@@ -1,0 +1,70 @@
+<section class="education">
+  <div class="container">
+
+    <div class="header">
+      <h1>Education</h1>
+
+      <a routerLink="../add" class="add-btn">
+        Add Education
+      </a>
+    </div>
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (educations.length === 0) {
+      <p class="empty">No education found.</p>
+    }
+
+    @for (education of educations; track education._id) {
+
+      <div class="education-card">
+
+        <h2>{{ education.degree }}</h2>
+
+        <h3>{{ education.university }}</h3>
+
+        <p>
+          <strong>Period:</strong>
+          {{ education.period }}
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+          {{ education.location }}
+        </p>
+
+        <p>
+          {{ education.description }}
+        </p>
+
+        <div class="actions">
+
+          <a
+            [routerLink]="['../edit', education._id]"
+            class="edit-btn"
+          >
+            Edit
+          </a>
+
+          <button
+            type="button"
+            class="delete-btn"
+            (click)="deleteEducation(education._id!)"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+</section>

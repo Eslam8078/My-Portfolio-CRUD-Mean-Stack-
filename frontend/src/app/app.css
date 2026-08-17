@@ -1,0 +1,13 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+router-outlet {
+  display: contents;
+}
+
+app-footer {
+  display: block;
+}

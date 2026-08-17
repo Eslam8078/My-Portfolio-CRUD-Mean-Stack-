@@ -1,0 +1,622 @@
+/* ========================================
+   Header
+======================================== */
+
+.header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(15, 23, 42, 0.88);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   Header Container
+======================================== */
+
+.header-container {
+  width: 100%;
+
+  max-width: 1250px;
+
+  height: 76px;
+
+  margin: 0 auto;
+
+  padding: 0 6%;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+/* ========================================
+   Logo
+======================================== */
+
+.logo {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 2px;
+
+  color: #f8fafc;
+
+  text-decoration: none;
+
+  font-size: 1.35rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.logo span {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  margin-right: 3px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  border-radius: 9px;
+
+  font-size: 1rem;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 18px rgba(37, 99, 235, 0.25);
+}
+
+.logo:hover {
+  color: #60a5fa;
+
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   Desktop Menu
+======================================== */
+
+.desktop-menu {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+/* ========================================
+   Desktop Links
+======================================== */
+
+.desktop-menu > a:not(.resume-btn) {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 9px 11px;
+
+  color: #94a3b8;
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  border-radius: 8px;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.desktop-menu > a:not(.resume-btn):hover {
+  color: #f8fafc;
+
+  background: rgba(59, 130, 246, 0.07);
+}
+
+/* ========================================
+   Active Link
+======================================== */
+
+.desktop-menu > a.active:not(.resume-btn) {
+  color: #60a5fa;
+
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* Active underline */
+
+.desktop-menu > a.active:not(.resume-btn)::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 2px;
+
+  width: 18px;
+
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6
+  );
+}
+
+/* ========================================
+   Resume Button
+======================================== */
+
+.resume-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-left: 8px;
+
+  padding: 10px 18px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  border: 1px solid transparent;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-size: 0.84rem;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.2);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.3);
+}
+
+/* ========================================
+   Menu Toggle
+======================================== */
+
+.menu-toggle {
+  display: none;
+}
+
+/* ========================================
+   Mobile Actions
+======================================== */
+
+.mobile-actions {
+  display: none;
+}
+
+/* ========================================
+   Mobile Menu
+======================================== */
+
+.mobile-menu {
+  display: none;
+}
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 1050px) {
+  .header-container {
+    padding: 0 5%;
+  }
+
+  .desktop-menu {
+    gap: 3px;
+  }
+
+  .desktop-menu > a:not(.resume-btn) {
+    padding: 8px 8px;
+
+    font-size: 0.8rem;
+  }
+
+  .resume-btn {
+    padding: 9px 14px;
+
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   Mobile Header
+======================================== */
+
+@media (max-width: 800px) {
+  .header-container {
+    height: 70px;
+
+    padding: 0 20px;
+  }
+
+  /* Hide desktop */
+
+  .desktop-menu {
+    display: none;
+  }
+
+  /* Show mobile actions */
+
+  .mobile-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+  /* ========================================
+     Hamburger Button
+  ======================================== */
+
+  .menu-button {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    background: rgba(30, 41, 59, 0.6);
+
+    border: 1px solid rgba(148, 163, 184, 0.12);
+
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .menu-button:hover {
+    background: rgba(59, 130, 246, 0.1);
+
+    border-color: rgba(59, 130, 246, 0.25);
+  }
+
+  /* ========================================
+     Hamburger Icon
+  ======================================== */
+
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    width: 20px;
+
+    height: 2px;
+
+    border-radius: 5px;
+
+    background: #cbd5e1;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .menu-icon {
+    position: relative;
+  }
+
+  .menu-icon::before,
+  .menu-icon::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+  }
+
+  .menu-icon::before {
+    top: -7px;
+  }
+
+  .menu-icon::after {
+    top: 7px;
+  }
+
+  /* ========================================
+     Hamburger -> X
+  ======================================== */
+
+  .menu-toggle:checked
+    ~ .mobile-actions
+    .menu-icon {
+    background: transparent;
+  }
+
+  .menu-toggle:checked
+    ~ .mobile-actions
+    .menu-icon::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle:checked
+    ~ .mobile-actions
+    .menu-icon::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ========================================
+     Mobile Menu
+  ======================================== */
+
+  .mobile-menu {
+    position: absolute;
+
+    top: 70px;
+
+    left: 0;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px 20px 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    background: rgba(15, 23, 42, 0.97);
+
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+
+    box-shadow:
+      0 20px 35px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-12px);
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  /* Open Menu */
+
+  .menu-toggle:checked
+    ~ .mobile-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+  }
+
+  /* ========================================
+     Mobile Links
+  ======================================== */
+
+  .mobile-menu > a {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 45px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    color: #94a3b8;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    transition:
+      color 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .mobile-menu > a:hover {
+    color: #f8fafc;
+
+    background: rgba(59, 130, 246, 0.08);
+
+    border-color: rgba(59, 130, 246, 0.12);
+
+    transform: translateX(3px);
+  }
+
+  /* Active */
+
+  .mobile-menu > a.active {
+    color: #60a5fa;
+
+    background: rgba(59, 130, 246, 0.1);
+
+    border-color: rgba(59, 130, 246, 0.15);
+  }
+
+  /* ========================================
+     Mobile Resume
+  ======================================== */
+
+  .mobile-resume {
+    justify-content: center;
+
+    margin-top: 8px;
+
+    color: #ffffff !important;
+
+    background: linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    ) !important;
+
+    border-color: transparent !important;
+
+    box-shadow:
+      0 8px 20px rgba(37, 99, 235, 0.2);
+  }
+
+  .mobile-resume:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+      0 12px 25px rgba(37, 99, 235, 0.3);
+  }
+}
+
+/* ========================================
+   Small Mobile
+======================================== */
+
+@media (max-width: 400px) {
+  .header-container {
+    padding: 0 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo span {
+    width: 31px;
+    height: 31px;
+
+    font-size: 0.9rem;
+  }
+
+  .menu-button {
+    width: 39px;
+    height: 39px;
+  }
+
+  .mobile-menu {
+    top: 70px;
+
+    padding-inline: 15px;
+  }
+}
+
+/* ========================================
+   Accessibility
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .desktop-menu a,
+  .resume-btn,
+  .menu-icon,
+  .mobile-menu,
+  .mobile-menu a {
+    transition: none;
+  }
+}

@@ -1,0 +1,954 @@
+/* =========================================================
+   Experience Section
+========================================================= */
+
+.experience {
+  position: relative;
+
+  min-height: calc(100vh - 80px);
+
+  padding: 90px 6%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 8% 18%,
+      rgba(59, 130, 246, 0.1),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 92% 82%,
+      rgba(139, 92, 246, 0.1),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #111827,
+      #0f172a
+    );
+
+  color: #f8fafc;
+}
+
+/* =========================================================
+   Background Glow
+========================================================= */
+
+.experience::before {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  top: -220px;
+  right: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(59, 130, 246, 0.07);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+
+  animation: backgroundFloat 9s ease-in-out infinite;
+}
+
+.experience::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  bottom: -190px;
+  left: -160px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.07);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+
+  animation: backgroundFloat 11s ease-in-out infinite reverse;
+}
+
+/* =========================================================
+   Container
+========================================================= */
+
+.experience-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1200px;
+
+  animation: sectionReveal 0.8s ease both;
+}
+
+/* =========================================================
+   Title
+========================================================= */
+
+.experience-container > h2 {
+  position: relative;
+
+  margin: 0 0 60px;
+
+  text-align: center;
+
+  font-size: clamp(2.2rem, 4vw, 3rem);
+
+  font-weight: 850;
+
+  letter-spacing: -1.5px;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 15%,
+    #60a5fa 55%,
+    #a78bfa 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleReveal 0.8s ease both;
+}
+
+/* =========================================================
+   Title Line
+========================================================= */
+
+.experience-container > h2::after {
+  content: "";
+
+  display: block;
+
+  width: 75px;
+  height: 4px;
+
+  margin: 17px auto 0;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  box-shadow:
+    0 0 15px rgba(59, 130, 246, 0.35);
+
+  animation: lineGrow 0.8s 0.3s ease both;
+}
+
+/* =========================================================
+   Experience List
+   One Card Per Row
+========================================================= */
+
+.experience-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 30px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   Experience Card
+========================================================= */
+
+.experience-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 270px;
+
+  padding: 38px 45px;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.84),
+      rgba(15, 23, 42, 0.84)
+    );
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  opacity: 0;
+
+  animation: cardReveal 0.7s ease forwards;
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+/* =========================================================
+   Staggered Cards
+========================================================= */
+
+.experience-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.experience-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.experience-card:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.experience-card:nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+.experience-card:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.experience-card:nth-child(6) {
+  animation-delay: 0.85s;
+}
+
+/* =========================================================
+   Gradient Left Accent
+========================================================= */
+
+.experience-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 5px;
+  height: 100%;
+
+  background: linear-gradient(
+    180deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  box-shadow:
+    2px 0 15px rgba(59, 130, 246, 0.2);
+
+  transition:
+    width 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* =========================================================
+   Card Glow
+========================================================= */
+
+.experience-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  top: -120px;
+  right: -120px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.1),
+      transparent 70%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+/* =========================================================
+   Top Shine
+========================================================= */
+
+.experience-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.experience-card:hover::before {
+  width: 7px;
+
+  box-shadow:
+    4px 0 22px rgba(59, 130, 246, 0.35);
+}
+
+.experience-card:hover::after {
+  transform: scale(1.35);
+
+  opacity: 1;
+}
+
+/* =========================================================
+   Hover
+========================================================= */
+
+.experience-card:hover {
+  transform: translateY(-8px) scale(1.008);
+
+  border-color: rgba(59, 130, 246, 0.32);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.95),
+      rgba(15, 23, 42, 0.92)
+    );
+
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.42),
+    0 0 40px rgba(59, 130, 246, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================
+   Header
+========================================================= */
+
+.experience-header {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 4px;
+}
+
+/* =========================================================
+   Job Title
+========================================================= */
+
+.experience-header h3 {
+  margin: 0 0 10px;
+
+  color: #f8fafc;
+
+  font-size: 1.5rem;
+
+  font-weight: 800;
+
+  line-height: 1.4;
+
+  letter-spacing: -0.4px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.experience-card:hover .experience-header h3 {
+  color: #ffffff;
+
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   Company
+========================================================= */
+
+.experience-header h4 {
+  margin: 0;
+
+  color: #60a5fa;
+
+  font-size: 1.08rem;
+
+  font-weight: 650;
+
+  line-height: 1.5;
+
+  transition:
+    color 0.3s ease;
+}
+
+.experience-card:hover .experience-header h4 {
+  color: #93c5fd;
+}
+
+/* =========================================================
+   Period
+========================================================= */
+
+.period {
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 9px 15px;
+
+  color: #93c5fd;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.1),
+      rgba(124, 58, 237, 0.08)
+    );
+
+  border: 1px solid rgba(59, 130, 246, 0.2);
+
+  border-radius: 10px;
+
+  font-size: 0.82rem;
+
+  font-weight: 650;
+
+  white-space: nowrap;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.experience-card:hover .period {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.16),
+      rgba(124, 58, 237, 0.13)
+    );
+
+  border-color: rgba(59, 130, 246, 0.35);
+
+  box-shadow:
+    0 8px 20px rgba(59, 130, 246, 0.08);
+}
+
+/* =========================================================
+   Location
+========================================================= */
+
+.location {
+  position: relative;
+  z-index: 3;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  margin: 22px 0;
+
+  padding: 7px 13px;
+
+  color: #c4b5fd;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.1),
+      rgba(59, 130, 246, 0.05)
+    );
+
+  border: 1px solid rgba(139, 92, 246, 0.18);
+
+  border-radius: 9px;
+
+  font-size: 0.82rem;
+
+  font-weight: 550;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.experience-card:hover .location {
+  transform: translateX(3px);
+
+  background:
+    rgba(139, 92, 246, 0.13);
+
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* =========================================================
+   Highlights
+========================================================= */
+
+.highlights {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+/* =========================================================
+   Highlight Item
+========================================================= */
+
+.highlights li {
+  position: relative;
+
+  padding-left: 26px;
+
+  color: #94a3b8;
+
+  font-size: 0.96rem;
+
+  line-height: 1.8;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.highlights li:hover {
+  color: #cbd5e1;
+
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   Highlight Bullet
+========================================================= */
+
+.highlights li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 11px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #8b5cf6
+  );
+
+  box-shadow:
+    0 0 10px rgba(59, 130, 246, 0.35);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.highlights li:hover::before {
+  transform: scale(1.35);
+
+  box-shadow:
+    0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+/* =========================================================
+   States
+========================================================= */
+
+.loading-state,
+.error-state,
+.empty-state {
+  max-width: 650px;
+
+  margin: 35px auto;
+
+  padding: 20px 25px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  font-size: 1rem;
+
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Loading */
+
+.loading-state {
+  color: #93c5fd;
+
+  background: rgba(59, 130, 246, 0.07);
+
+  border: 1px solid rgba(59, 130, 246, 0.16);
+}
+
+/* Error */
+
+.error-state {
+  color: #fca5a5;
+
+  background: rgba(239, 68, 68, 0.07);
+
+  border: 1px solid rgba(239, 68, 68, 0.16);
+}
+
+/* Empty */
+
+.empty-state {
+  color: #94a3b8;
+
+  background: rgba(148, 163, 184, 0.05);
+
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* =========================================================
+   Loading Spinner
+========================================================= */
+
+.loading-state::after {
+  content: "";
+
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  margin: 15px auto 0;
+
+  border: 3px solid rgba(148, 163, 184, 0.15);
+
+  border-top-color: #3b82f6;
+
+  border-right-color: #7c3aed;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+/* =========================================================
+   Animations
+========================================================= */
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    opacity: 0;
+
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(35px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes backgroundFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-25px, 20px) scale(1.08);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   Large Tablet
+========================================================= */
+
+@media (max-width: 950px) {
+  .experience {
+    padding: 75px 5%;
+  }
+
+  .experience-card {
+    padding: 34px 35px;
+  }
+}
+
+/* =========================================================
+   Tablet
+========================================================= */
+
+@media (max-width: 800px) {
+  .experience {
+    padding: 65px 5%;
+  }
+
+  .experience-card {
+    min-height: 250px;
+
+    padding: 32px;
+  }
+
+  .experience-header {
+    gap: 20px;
+  }
+
+  .experience-header h3 {
+    font-size: 1.35rem;
+  }
+
+  .experience-header h4 {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 600px) {
+  .experience {
+    min-height: auto;
+
+    padding: 50px 20px;
+  }
+
+  .experience-container > h2 {
+    margin-bottom: 38px;
+
+    font-size: 2.1rem;
+  }
+
+  .experience-list {
+    gap: 22px;
+  }
+
+  .experience-card {
+    min-height: 0;
+
+    padding: 28px 24px;
+
+    border-radius: 19px;
+  }
+
+  .experience-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .experience-header h3 {
+    font-size: 1.22rem;
+  }
+
+  .experience-header h4 {
+    font-size: 0.96rem;
+  }
+
+  .period {
+    padding: 7px 11px;
+
+    font-size: 0.76rem;
+  }
+
+  .location {
+    margin: 18px 0;
+
+    padding: 6px 10px;
+
+    font-size: 0.76rem;
+  }
+
+  .highlights {
+    gap: 10px;
+  }
+
+  .highlights li {
+    padding-left: 21px;
+
+    font-size: 0.89rem;
+
+    line-height: 1.75;
+  }
+
+  .experience-card:hover {
+    transform: translateY(-5px) scale(1.005);
+  }
+}
+
+/* =========================================================
+   Small Mobile
+========================================================= */
+
+@media (max-width: 400px) {
+  .experience {
+    padding: 45px 15px;
+  }
+
+  .experience-container > h2 {
+    font-size: 1.85rem;
+  }
+
+  .experience-card {
+    padding: 25px 20px;
+  }
+
+  .experience-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .highlights li {
+    font-size: 0.86rem;
+  }
+}
+
+/* =========================================================
+   Accessibility
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .experience,
+  .experience::before,
+  .experience::after,
+  .experience-container,
+  .experience-container > h2,
+  .experience-container > h2::after,
+  .experience-card,
+  .loading-state,
+  .error-state,
+  .empty-state,
+  .loading-state::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .experience-card {
+    opacity: 1;
+  }
+}

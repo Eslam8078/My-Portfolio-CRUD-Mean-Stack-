@@ -1,0 +1,54 @@
+<section class="projects">
+  <div class="projects-container">
+    <h2>My Projects</h2>
+
+    @if (projects.length) {
+      <div class="projects-grid">
+        @for (project of projects; track project) {
+          <article class="project-card">
+            <div class="project-content">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.description }}</p>
+
+              @if (project.technologies.length) {
+                <div class="technologies">
+                  @for (technology of project.technologies; track $index) {
+                    <span>{{ technology }}</span>
+                  }
+                </div>
+              }
+
+              <div class="project-links">
+                @if (project.github) {
+                  <a
+                    [href]="project.github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                }
+
+                @if (project.livedemo) {
+                  <a
+                    [href]="project.livedemo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    } @else if (loading) {
+      <p class="loading-state">Loading projects...</p>
+    } @else if (errorMessage) {
+      <p class="error-state">{{ errorMessage }}</p>
+    } @else {
+      <p class="empty-state">No data available yet.</p>
+    }
+  </div>
+</section>

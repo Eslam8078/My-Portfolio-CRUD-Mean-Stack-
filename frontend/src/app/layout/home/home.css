@@ -1,0 +1,1123 @@
+/* =========================================================
+   HOME / HERO
+========================================================= */
+
+.home {
+  position: relative;
+
+  min-height: calc(100vh - 75px);
+
+  padding: 80px 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 12% 25%,
+      rgba(59, 130, 246, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 88% 70%,
+      rgba(139, 92, 246, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a 0%,
+      #111827 50%,
+      #0f172a 100%
+    );
+
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.home::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
+
+  pointer-events: none;
+
+  animation: gridMove 18s linear infinite;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.home::after {
+  content: "";
+
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  top: -260px;
+  right: -200px;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.14),
+      transparent 65%
+    );
+
+  filter: blur(20px);
+
+  pointer-events: none;
+
+  animation: backgroundFloat 8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DECORATIVE ORBS
+========================================================= */
+
+.home-content::before,
+.home-content::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.home-content::before {
+  width: 180px;
+  height: 180px;
+
+  bottom: -100px;
+  left: -100px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.12),
+      transparent 70%
+    );
+
+  filter: blur(15px);
+
+  animation: orbFloat 7s ease-in-out infinite;
+}
+
+.home-content::after {
+  width: 120px;
+  height: 120px;
+
+  top: 10%;
+  left: 45%;
+
+  border: 1px solid rgba(96, 165, 250, 0.08);
+
+  animation: rotateOrb 15s linear infinite;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.home-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1200px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(350px, 0.8fr);
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.home-text {
+  max-width: 700px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  margin: 0 0 14px;
+
+  color: #60a5fa;
+
+  font-size: 1.05rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  animation: fadeSlideUp 0.7s ease forwards;
+
+  animation-delay: 0.15s;
+}
+
+.intro::before {
+  content: "";
+
+  display: inline-block;
+
+  width: 28px;
+  height: 2px;
+
+  margin-right: 10px;
+
+  vertical-align: middle;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #8b5cf6
+  );
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.home-text h1 {
+  position: relative;
+
+  margin: 0 0 14px;
+
+  font-size: clamp(3rem, 7vw, 5.5rem);
+
+  line-height: 1.05;
+
+  font-weight: 900;
+
+  letter-spacing: -3px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 10%,
+      #60a5fa 50%,
+      #a78bfa 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+
+  animation:
+    titleReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+
+  animation-delay: 0.25s;
+}
+
+
+/* Animated Shine */
+
+.home-text h1::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  animation: textShine 5s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   JOB TITLE
+========================================================= */
+
+.home-text h2 {
+  margin: 0 0 25px;
+
+  color: #cbd5e1;
+
+  font-size: clamp(1.3rem, 3vw, 2rem);
+
+  font-weight: 650;
+
+  line-height: 1.4;
+
+  opacity: 0;
+
+  animation: fadeSlideUp 0.7s ease forwards;
+
+  animation-delay: 0.45s;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.description {
+  max-width: 650px;
+
+  margin: 0 0 35px;
+
+  color: #94a3b8;
+
+  font-size: 1.05rem;
+
+  line-height: 1.9;
+
+  letter-spacing: 0.2px;
+
+  opacity: 0;
+
+  animation: fadeSlideUp 0.7s ease forwards;
+
+  animation-delay: 0.6s;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.home-buttons {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 13px;
+
+  opacity: 0;
+
+  animation: fadeSlideUp 0.7s ease forwards;
+
+  animation-delay: 0.75s;
+}
+
+
+.home-buttons a {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 115px;
+
+  padding: 12px 20px;
+
+  overflow: hidden;
+
+  color: #cbd5e1;
+
+  background: rgba(30, 41, 59, 0.7);
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+  font-weight: 650;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Button Shine */
+
+.home-buttons a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+.home-buttons a:hover::before {
+  left: 140%;
+}
+
+
+/* First Button */
+
+.home-buttons a:first-child {
+  color: #ffffff;
+
+  border-color: transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.22);
+}
+
+
+/* Button Hover */
+
+.home-buttons a:hover {
+  color: #ffffff;
+
+  transform: translateY(-4px);
+
+  background: rgba(59, 130, 246, 0.1);
+
+  border-color: rgba(59, 130, 246, 0.35);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* First Button Hover */
+
+.home-buttons a:first-child:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  border-color: transparent;
+
+  box-shadow:
+    0 18px 40px rgba(37, 99, 235, 0.35);
+}
+
+
+/* Click */
+
+.home-buttons a:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+
+/* =========================================================
+   IMAGE CONTAINER
+========================================================= */
+
+.home-image {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  min-height: 400px;
+
+  opacity: 0;
+
+  animation:
+    imageReveal 1s cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+
+  animation-delay: 0.35s;
+}
+
+
+/* =========================================================
+   IMAGE GLOW
+========================================================= */
+
+.home-image::before {
+  content: "";
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.22),
+      rgba(139, 92, 246, 0.12) 45%,
+      transparent 70%
+    );
+
+  filter: blur(30px);
+
+  animation:
+    imageGlow 4s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   IMAGE RING
+========================================================= */
+
+.home-image::after {
+  content: "";
+
+  position: absolute;
+
+  width: 370px;
+  height: 370px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(96, 165, 250, 0.15);
+
+  border-top-color: rgba(96, 165, 250, 0.5);
+
+  animation:
+    ringRotate 12s linear infinite;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.home-image img {
+  position: relative;
+
+  z-index: 1;
+
+  width: 350px;
+  height: 350px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 5px solid rgba(59, 130, 246, 0.45);
+
+  box-shadow:
+    0 0 0 10px rgba(59, 130, 246, 0.04),
+    0 30px 70px rgba(0, 0, 0, 0.45);
+
+  animation:
+    imageFloat 5s ease-in-out infinite;
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+
+/* Image Hover */
+
+.home-image img:hover {
+  transform:
+    scale(1.045)
+    rotate(1deg);
+
+  box-shadow:
+    0 0 0 12px rgba(59, 130, 246, 0.06),
+    0 35px 80px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   LOADING / ERROR / EMPTY
+========================================================= */
+
+.loading-state,
+.error-state,
+.empty-state {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(90%, 600px);
+
+  padding: 20px 25px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  font-size: 1rem;
+
+  animation:
+    fadeSlideUp 0.6s ease both;
+}
+
+
+/* Loading */
+
+.loading-state {
+  color: #93c5fd;
+
+  background: rgba(59, 130, 246, 0.07);
+
+  border: 1px solid rgba(59, 130, 246, 0.16);
+}
+
+
+/* Error */
+
+.error-state {
+  color: #fca5a5;
+
+  background: rgba(239, 68, 68, 0.07);
+
+  border: 1px solid rgba(239, 68, 68, 0.16);
+}
+
+
+/* Empty */
+
+.empty-state {
+  color: #94a3b8;
+
+  background: rgba(148, 163, 184, 0.05);
+
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+
+/* =========================================================
+   LOADING SPINNER
+========================================================= */
+
+.loading-state::after {
+  content: "";
+
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  margin: 15px auto 0;
+
+  border: 3px solid rgba(148, 163, 184, 0.15);
+
+  border-top-color: #3b82f6;
+
+  border-right-color: #8b5cf6;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(40px)
+      scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes imageFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-13px);
+  }
+}
+
+
+@keyframes imageGlow {
+  0%,
+  100% {
+    transform: scale(1);
+
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.12);
+
+    opacity: 1;
+  }
+}
+
+
+@keyframes backgroundFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-30px, 35px);
+  }
+}
+
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(25px, -25px);
+  }
+}
+
+
+@keyframes rotateOrb {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes ringRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes textShine {
+  0%,
+  65% {
+    left: -100%;
+  }
+
+  85%,
+  100% {
+    left: 150%;
+  }
+}
+
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 55px 55px;
+  }
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .home {
+    padding: 70px 5%;
+  }
+
+  .home-content {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 0.8fr);
+
+    gap: 50px;
+  }
+
+  .home-image img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .home-image::before {
+    width: 340px;
+    height: 340px;
+  }
+
+  .home-image::after {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .home {
+    min-height: auto;
+
+    padding: 80px 5%;
+  }
+
+  .home-content {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+
+    text-align: center;
+  }
+
+  .home-text {
+    max-width: 750px;
+
+    margin: 0 auto;
+  }
+
+  .intro::before {
+    display: none;
+  }
+
+  .description {
+    margin-inline: auto;
+  }
+
+  .home-buttons {
+    justify-content: center;
+  }
+
+  .home-image {
+    order: -1;
+
+    min-height: 350px;
+  }
+
+  .home-image img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .home-image::before {
+    width: 310px;
+    height: 310px;
+  }
+
+  .home-image::after {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home {
+    padding: 55px 20px 70px;
+  }
+
+  .home-content {
+    gap: 45px;
+  }
+
+  .home-image {
+    min-height: 280px;
+  }
+
+  .home-image img {
+    width: 230px;
+    height: 230px;
+
+    border-width: 4px;
+  }
+
+  .home-image::before {
+    width: 260px;
+    height: 260px;
+  }
+
+  .home-image::after {
+    width: 250px;
+    height: 250px;
+  }
+
+  .intro {
+    font-size: 0.85rem;
+
+    letter-spacing: 1.5px;
+  }
+
+  .home-text h1 {
+    font-size:
+      clamp(2.5rem, 13vw, 4rem);
+
+    letter-spacing: -2px;
+  }
+
+  .home-text h2 {
+    margin-bottom: 20px;
+
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 0.92rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 28px;
+  }
+
+  .home-buttons {
+    gap: 10px;
+  }
+
+  .home-buttons a {
+    min-width: 100px;
+
+    padding: 11px 16px;
+
+    font-size: 0.85rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .home {
+    padding-inline: 15px;
+  }
+
+  .home-image {
+    min-height: 240px;
+  }
+
+  .home-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .home-image::before {
+    width: 225px;
+    height: 225px;
+  }
+
+  .home-image::after {
+    width: 215px;
+    height: 215px;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .home-buttons a {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .home *,
+  .home::before,
+  .home::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+}

@@ -1,0 +1,1152 @@
+/* =========================================================
+   PROJECTS SECTION
+========================================================= */
+
+.projects {
+  position: relative;
+
+  min-height: calc(100vh - 80px);
+
+  padding: 90px 6%;
+
+  display: flex;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(59, 130, 246, 0.09),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(139, 92, 246, 0.09),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #111827 50%,
+      #0f172a
+    );
+
+  color: #f8fafc;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.projects::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 95%
+  );
+
+  animation: gridMove 20s linear infinite;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.projects::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -250px;
+  top: 15%;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.12),
+      transparent 68%
+    );
+
+  filter: blur(25px);
+
+  animation: backgroundFloat 8s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.projects-container {
+  width: 100%;
+  max-width: 1250px;
+
+  position: relative;
+  z-index: 2;
+
+  animation:
+    sectionReveal 0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.projects-container > h2 {
+  position: relative;
+
+  margin: 0 0 60px;
+
+  text-align: center;
+
+  font-size: clamp(2.2rem, 4vw, 3rem);
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc 10%,
+      #60a5fa 50%,
+      #a78bfa 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation:
+    titleReveal 0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+
+/* =========================================================
+   TITLE LINE
+========================================================= */
+
+.projects-container > h2::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 4px;
+
+  margin: 16px auto 0;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3b82f6,
+      #8b5cf6
+    );
+
+  box-shadow:
+    0 0 18px rgba(59, 130, 246, 0.35);
+
+  animation:
+    lineGrow 0.8s ease both;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+   2 PROJECTS PER ROW
+========================================================= */
+
+.projects-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.project-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(30, 41, 59, 0.78),
+      rgba(15, 23, 42, 0.9)
+    );
+
+  border:
+    1px solid rgba(148, 163, 184, 0.13);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(16px);
+
+  opacity: 0;
+
+  animation:
+    cardReveal 0.7s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   CARD STAGGER ANIMATION
+========================================================= */
+
+.project-card:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+.project-card:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.project-card:nth-child(5) {
+  animation-delay: 0.55s;
+}
+
+.project-card:nth-child(6) {
+  animation-delay: 0.65s;
+}
+
+.project-card:nth-child(n + 7) {
+  animation-delay: 0.75s;
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.project-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59, 130, 246, 0.18),
+      transparent 70%
+    );
+
+  filter: blur(15px);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
+
+  pointer-events: none;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.project-card:hover {
+  transform:
+    translateY(-10px)
+    scale(1.015);
+
+  border-color:
+    rgba(96, 165, 250, 0.38);
+
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(59, 130, 246, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+
+.project-card:hover::after {
+  opacity: 1;
+
+  transform: scale(1.25);
+}
+
+
+/* =========================================================
+   IMAGE WRAPPER
+========================================================= */
+
+.project-image-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 240px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.project-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-bottom:
+    1px solid rgba(148, 163, 184, 0.1);
+
+  transform: scale(1);
+
+  transition:
+    transform 0.65s
+    cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s ease;
+}
+
+
+/* =========================================================
+   IMAGE ZOOM
+========================================================= */
+
+.project-card:hover .project-image {
+  transform: scale(1.12);
+
+  filter:
+    brightness(1.08)
+    saturate(1.08);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.project-image-wrapper::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.02),
+      rgba(15, 23, 42, 0.55)
+    );
+
+  opacity: 0.7;
+
+  transition:
+    opacity 0.4s ease;
+
+  pointer-events: none;
+}
+
+
+.project-card:hover
+.project-image-wrapper::after {
+  opacity: 0.4;
+}
+
+
+/* =========================================================
+   IMAGE SHINE
+========================================================= */
+
+.project-image-wrapper::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -130%;
+
+  width: 60%;
+  height: 100%;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.13),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 0.7s ease;
+
+  pointer-events: none;
+}
+
+
+.project-card:hover
+.project-image-wrapper::before {
+  left: 140%;
+}
+
+
+/* =========================================================
+   FALLBACK IMAGE
+   Works if wrapper isn't used
+========================================================= */
+
+.project-card > .project-image {
+  height: 240px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.project-content {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 28px;
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.project-content h3 {
+  margin: 0 0 12px;
+
+  color: #f8fafc;
+
+  font-size: 1.3rem;
+
+  font-weight: 800;
+
+  line-height: 1.4;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.project-card:hover
+.project-content h3 {
+  color: #93c5fd;
+
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.project-content > p {
+  margin: 0 0 22px;
+
+  color: #94a3b8;
+
+  font-size: 0.92rem;
+
+  line-height: 1.8;
+
+  transition:
+    color 0.3s ease;
+}
+
+
+.project-card:hover
+.project-content > p {
+  color: #a7b5c8;
+}
+
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 25px;
+}
+
+
+.technologies span {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 6px 10px;
+
+  overflow: hidden;
+
+  color: #93c5fd;
+
+  background:
+    rgba(59, 130, 246, 0.08);
+
+  border:
+    1px solid rgba(59, 130, 246, 0.16);
+
+  border-radius: 8px;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.technologies span:hover {
+  color: #ffffff;
+
+  background:
+    rgba(59, 130, 246, 0.16);
+
+  border-color:
+    rgba(59, 130, 246, 0.35);
+
+  transform:
+    translateY(-3px)
+    scale(1.04);
+
+  box-shadow:
+    0 6px 15px rgba(59, 130, 246, 0.12);
+}
+
+
+/* =========================================================
+   PROJECT LINKS
+========================================================= */
+
+.project-links {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: auto;
+}
+
+
+.project-links a {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex: 1;
+
+  min-width: 100px;
+
+  padding: 11px 15px;
+
+  overflow: hidden;
+
+  color: #cbd5e1;
+
+  background:
+    rgba(30, 41, 59, 0.7);
+
+  border:
+    1px solid rgba(148, 163, 184, 0.14);
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  font-size: 0.82rem;
+
+  font-weight: 650;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.project-links a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -130%;
+
+  width: 80%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.16),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 0.6s ease;
+}
+
+
+.project-links a:hover::before {
+  left: 140%;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.project-links a:first-child {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  border-color: transparent;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.project-links a:hover {
+  transform: translateY(-3px);
+
+  color: #ffffff;
+
+  background:
+    rgba(59, 130, 246, 0.12);
+
+  border-color:
+    rgba(59, 130, 246, 0.3);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+.project-links a:first-child:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  border-color: transparent;
+
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.3);
+}
+
+
+/* =========================================================
+   LOADING / ERROR / EMPTY
+========================================================= */
+
+.loading-state,
+.error-state,
+.empty-state {
+  max-width: 650px;
+
+  margin: 35px auto;
+
+  padding: 20px 25px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  font-size: 1rem;
+
+  animation:
+    fadeUp 0.6s ease both;
+}
+
+
+/* Loading */
+
+.loading-state {
+  color: #93c5fd;
+
+  background:
+    rgba(59, 130, 246, 0.07);
+
+  border:
+    1px solid rgba(59, 130, 246, 0.16);
+}
+
+
+/* Error */
+
+.error-state {
+  color: #fca5a5;
+
+  background:
+    rgba(239, 68, 68, 0.07);
+
+  border:
+    1px solid rgba(239, 68, 68, 0.16);
+}
+
+
+/* Empty */
+
+.empty-state {
+  color: #94a3b8;
+
+  background:
+    rgba(148, 163, 184, 0.05);
+
+  border:
+    1px solid rgba(148, 163, 184, 0.1);
+}
+
+
+/* =========================================================
+   LOADING SPINNER
+========================================================= */
+
+.loading-state::after {
+  content: "";
+
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  margin: 15px auto 0;
+
+  border:
+    3px solid rgba(148, 163, 184, 0.15);
+
+  border-top-color: #3b82f6;
+
+  border-right-color: #8b5cf6;
+
+  border-radius: 50%;
+
+  animation:
+    spin 0.8s linear infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+
+    opacity: 0;
+  }
+
+  to {
+    width: 70px;
+
+    opacity: 1;
+  }
+}
+
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(40px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes backgroundFloat {
+  0%,
+  100% {
+    transform:
+      translate(0, 0);
+  }
+
+  50% {
+    transform:
+      translate(-35px, 30px);
+  }
+}
+
+
+@keyframes gridMove {
+  from {
+    background-position:
+      0 0;
+  }
+
+  to {
+    background-position:
+      55px 55px;
+  }
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes spin {
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .projects-container {
+    max-width: 1350px;
+  }
+
+  .projects-grid {
+    gap: 35px;
+  }
+
+  .project-image-wrapper {
+    height: 260px;
+  }
+
+  .project-card > .project-image {
+    height: 260px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .projects {
+    padding:
+      70px 5%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .project-image-wrapper {
+    height: 240px;
+  }
+
+  .project-card > .project-image {
+    height: 240px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .projects {
+    min-height: auto;
+
+    padding:
+      50px 20px;
+  }
+
+  .projects-container > h2 {
+    margin-bottom: 35px;
+
+    font-size: 2.1rem;
+  }
+
+  .project-image-wrapper {
+    height: 210px;
+  }
+
+  .project-card > .project-image {
+    height: 210px;
+  }
+
+  .project-content {
+    padding:
+      25px 22px;
+  }
+
+  .project-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-content > p {
+    font-size: 0.88rem;
+
+    line-height: 1.75;
+  }
+
+  .technologies {
+    gap: 6px;
+  }
+
+  .technologies span {
+    padding:
+      5px 8px;
+
+    font-size: 0.72rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-links a {
+    width: 100%;
+
+    flex: none;
+
+    box-sizing: border-box;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .projects {
+    padding:
+      45px 15px;
+  }
+
+  .projects-container > h2 {
+    font-size: 1.85rem;
+  }
+
+  .project-image-wrapper {
+    height: 190px;
+  }
+
+  .project-card > .project-image {
+    height: 190px;
+  }
+
+  .project-content {
+    padding:
+      23px 19px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projects *,
+  .projects::before,
+  .projects::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+}

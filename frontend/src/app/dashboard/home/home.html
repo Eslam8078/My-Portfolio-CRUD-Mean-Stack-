@@ -1,0 +1,73 @@
+<div class="home-dashboard">
+  <div class="header">
+    <h1>Home</h1>
+    <p>Update your portfolio home section</p>
+  </div>
+
+  @if (successMessage) {
+    <p class="success">{{ successMessage }}</p>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name</label>
+      <input formControlName="name" type="text" placeholder="Enter your name" />
+
+      @if (myForm.controls.name.touched && myForm.controls.name.invalid) {
+        <small>Name is required</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Title</label>
+      <input formControlName="title" type="text" placeholder="Enter your title" />
+
+      @if (myForm.controls.title.touched && myForm.controls.title.invalid) {
+        <small>Title is required</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea formControlName="description" rows="6" placeholder="Enter your description"></textarea>
+
+      @if (myForm.controls.description.touched && myForm.controls.description.invalid) {
+        <small>Description is required</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>GitHub</label>
+      <input formControlName="github" type="url" placeholder="https://github.com/username" />
+    </div>
+
+    <div class="form-group">
+      <label>LinkedIn</label>
+      <input formControlName="linkedin" type="url" placeholder="https://linkedin.com/in/username" />
+    </div>
+
+    <div class="form-group">
+      <label>Profile Image</label>
+      <input type="file" accept="image/*" (change)="onImageChange($event)" />
+
+      @if (myForm.controls.image.value) {
+        <small>Selected: {{ myForm.controls.image.value?.name }}</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Resume</label>
+      <input type="file" accept=".pdf" (change)="onResumeChange($event)" />
+
+      @if (myForm.controls.resume.value) {
+        <small>Selected: {{ myForm.controls.resume.value?.name }}</small>
+      }
+    </div>
+
+    <button type="submit" [disabled]="myForm.invalid">Update Home</button>
+  </form>
+</div>
