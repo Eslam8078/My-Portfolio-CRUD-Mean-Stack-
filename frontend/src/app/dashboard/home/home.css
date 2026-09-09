@@ -6,7 +6,7 @@
   color: #f8fafc;
 }
 
-/* Header */
+
 
 .header {
   margin-bottom: 30px;
@@ -26,7 +26,7 @@
   font-size: 14px;
 }
 
-/* Messages */
+
 
 .success,
 .error {
@@ -49,7 +49,7 @@
   color: #f87171;
 }
 
-/* Form */
+
 
 form {
   width: 100%;
@@ -78,7 +78,7 @@ label {
   font-weight: 600;
 }
 
-/* Inputs */
+
 
 input,
 textarea {
@@ -112,7 +112,7 @@ textarea {
   line-height: 1.6;
 }
 
-/* File Inputs */
+
 
 input[type="file"] {
   padding: 10px;
@@ -137,7 +137,7 @@ input[type="file"]::file-selector-button:hover {
   color: #fff;
 }
 
-/* Validation / Selected File */
+
 
 small {
   display: block;
@@ -150,7 +150,7 @@ small {
   color: #94a3b8;
 }
 
-/* Button */
+
 
 button {
   width: 100%;
@@ -181,13 +181,13 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Validation Error */
+
 
 .form-group > small {
   color: #f87171;
 }
 
-/* Tablet */
+
 
 @media (max-width: 900px) {
   .home-dashboard {
@@ -199,7 +199,7 @@ button:disabled {
   }
 }
 
-/* Mobile */
+
 
 @media (max-width: 600px) {
   .home-dashboard {

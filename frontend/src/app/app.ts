@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './shared/footer/footer';
 
@@ -8,5 +8,4 @@ import { Footer } from './shared/footer/footer';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-}
+export class App {}

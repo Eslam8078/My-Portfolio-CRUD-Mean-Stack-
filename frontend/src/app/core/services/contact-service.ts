@@ -1,25 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { IContact } from '../models/contact.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactService {
-  constructor(private http: HttpClient) {}
-  private apiURL = 'http://localhost:3000/api/contact';
+  private readonly apiUrl = `${environment.apiBaseUrl}/contact`;
+
+  constructor(private readonly http: HttpClient) {}
 
   sendMessage(data: IContact) {
-    return this.http.post<IContact>(this.apiURL, data);
+    return this.http.post<IContact>(this.apiUrl, data);
   }
+
   getMessages() {
-    return this.http.get<IContact[]>(this.apiURL, { params: { t: Date.now() } });
+    return this.http.get<IContact[]>(this.apiUrl, { params: { t: Date.now() } });
   }
+
   deleteMessage(id: string) {
-    return this.http.delete(`${this.apiURL}/${id}`);
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   markAsRead(id: string) {
-    return this.http.patch<IContact>(`${this.apiURL}/${id}/read`, {});
+    return this.http.patch<IContact>(`${this.apiUrl}/${id}/read`, {});
   }
 }

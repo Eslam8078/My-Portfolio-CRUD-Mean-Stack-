@@ -4,7 +4,7 @@
 
     @if (experiences.length) {
       <div class="experience-list">
-        @for (experience of experiences; track experience) {
+        @for (experience of experiences; track experience._id ?? experience.title) {
           <div class="experience-card">
             <div class="experience-header">
               <div>

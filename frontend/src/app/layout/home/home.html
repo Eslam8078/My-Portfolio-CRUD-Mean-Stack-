@@ -7,6 +7,20 @@
         <h2>{{ home.title }}</h2>
         <p class="description">{{ home.description }}</p>
 
+        @if (home.location || home.email || home.phone) {
+          <div class="home-meta">
+            @if (home.location) {
+              <span>{{ home.location }}</span>
+            }
+            @if (home.email) {
+              <a [href]="'mailto:' + home.email">{{ home.email }}</a>
+            }
+            @if (home.phone) {
+              <a [href]="'tel:' + home.phone">{{ home.phone }}</a>
+            }
+          </div>
+        }
+
         <div class="home-buttons">
           @if (home.resumeUrl) {
             <a [href]="resumeUrl(home.resumeUrl)" target="_blank" rel="noopener noreferrer">

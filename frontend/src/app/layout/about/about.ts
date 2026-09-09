@@ -1,6 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IAbout } from '../../core/models/about.model';
 import { AboutService } from '../../core/services/about-service';
+import { resolveAssetUrl } from '../../core/utils/asset-url';
 
 @Component({
   selector: 'app-about',
@@ -8,33 +9,26 @@ import { AboutService } from '../../core/services/about-service';
   styleUrl: './about.css',
 })
 export class About implements OnInit {
-  private apiURL = 'http://localhost:3000';
-
   about: IAbout | null = null;
   loading = true;
   errorMessage = '';
 
-  constructor(
-    private aboutService: AboutService,
-    private cdr: ChangeDetectorRef,
-  ) {}
+  constructor(private readonly aboutService: AboutService) {}
 
   ngOnInit(): void {
     this.aboutService.getAbout().subscribe({
       next: (data) => {
         this.about = data;
         this.loading = false;
-        this.cdr.detectChanges();
       },
       error: () => {
         this.loading = false;
         this.errorMessage = 'Unable to load about data. Please try again.';
-        this.cdr.detectChanges();
       },
     });
   }
 
   imageUrl(url: string): string {
-    return url.startsWith('http') ? url : `${this.apiURL}${url}`;
+    return resolveAssetUrl(url);
   }
 }

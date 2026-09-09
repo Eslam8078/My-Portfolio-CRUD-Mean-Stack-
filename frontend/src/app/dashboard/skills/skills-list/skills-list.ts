@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ISkill } from '../../../core/models/skills.model';
 import { SkillsService } from '../../../core/services/skills-service';
@@ -15,8 +15,7 @@ export class SkillsList implements OnInit {
   errorMessage = '';
 
   constructor(
-    private skillsService: SkillsService,
-    private cdr: ChangeDetectorRef
+    private skillsService: SkillsService
   ) {}
 
   ngOnInit(): void {
@@ -27,11 +26,9 @@ export class SkillsList implements OnInit {
     this.skillsService.getSkills().subscribe({
       next: data => {
         this.skills = data;
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to load skills';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -46,11 +43,9 @@ export class SkillsList implements OnInit {
       next: () => {
         this.successMessage = 'Skill deleted successfully';
         this.getSkills();
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to delete skill';
-        this.cdr.detectChanges();
       },
     });
   }

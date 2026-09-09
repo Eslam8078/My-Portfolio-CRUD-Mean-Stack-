@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IExperience } from '../../../core/models/experience.model';
@@ -18,8 +18,7 @@ export class ExperienceEdit implements OnInit {
 
   constructor(
     private experienceService: ExperienceService,
-    private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -65,12 +64,9 @@ export class ExperienceEdit implements OnInit {
         (data.highlights?.length ? data.highlights : ['']).forEach(h =>
           this.highlights.push(new FormControl(h, Validators.required))
         );
-
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to load experience';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -87,11 +83,9 @@ export class ExperienceEdit implements OnInit {
     this.experienceService.updateExperience(this.experienceId, this.myForm.value).subscribe({
       next: () => {
         this.successMessage = 'Experience updated successfully';
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to update experience';
-        this.cdr.detectChanges();
       },
     });
   }

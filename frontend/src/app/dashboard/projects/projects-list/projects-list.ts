@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IProject } from '../../../core/models/projects.model';
 import { ProjectsService } from '../../../core/services/projects-service';
@@ -15,8 +15,7 @@ export class ProjectsList implements OnInit {
   errorMessage = '';
 
   constructor(
-    private projectsService: ProjectsService,
-    private cdr: ChangeDetectorRef
+    private projectsService: ProjectsService
   ) {}
 
   ngOnInit(): void {
@@ -27,11 +26,9 @@ export class ProjectsList implements OnInit {
     this.projectsService.getProjects().subscribe({
       next: data => {
         this.projects = data;
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to load projects';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -46,11 +43,9 @@ export class ProjectsList implements OnInit {
       next: () => {
         this.successMessage = 'Project deleted successfully';
         this.getProjects();
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to delete project';
-        this.cdr.detectChanges();
       },
     });
   }

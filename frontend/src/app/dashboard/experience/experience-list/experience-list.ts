@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IExperience } from '../../../core/models/experience.model';
 import { ExperienceService } from '../../../core/services/experience-service';
@@ -17,8 +17,7 @@ export class ExperienceList implements OnInit {
   errorMessage = '';
 
   constructor(
-    private experienceService: ExperienceService,
-    private cdr: ChangeDetectorRef
+    private experienceService: ExperienceService
   ) {}
 
   ngOnInit(): void {
@@ -29,12 +28,10 @@ export class ExperienceList implements OnInit {
     this.experienceService.getExperience().subscribe({
       next: (data) => {
         this.experiences = data;
-        this.cdr.detectChanges();
       },
 
       error: () => {
         this.errorMessage = 'Failed to load experience';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -53,14 +50,10 @@ export class ExperienceList implements OnInit {
         this.successMessage = 'Experience deleted successfully';
 
         this.getExperience();
-
-        this.cdr.detectChanges();
       },
 
       error: () => {
         this.errorMessage = 'Failed to delete experience';
-
-        this.cdr.detectChanges();
       },
     });
   }

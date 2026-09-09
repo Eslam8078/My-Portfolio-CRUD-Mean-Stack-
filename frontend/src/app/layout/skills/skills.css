@@ -1,6 +1,4 @@
-/* =========================================================
-   Skills Section
-========================================================= */
+
 
 .skills {
   position: relative;
@@ -20,12 +18,12 @@
   background:
     radial-gradient(
       circle at 10% 15%,
-      rgba(59, 130, 246, 0.1),
+      rgba(20, 184, 166, 0.1),
       transparent 32%
     ),
     radial-gradient(
       circle at 90% 85%,
-      rgba(139, 92, 246, 0.1),
+      rgba(13, 148, 136, 0.1),
       transparent 32%
     ),
     linear-gradient(
@@ -38,9 +36,7 @@
   color: #f8fafc;
 }
 
-/* =========================================================
-   Background Glow
-========================================================= */
+
 
 .skills::before {
   content: "";
@@ -55,7 +51,7 @@
 
   border-radius: 50%;
 
-  background: rgba(59, 130, 246, 0.07);
+  background: rgba(20, 184, 166, 0.07);
 
   filter: blur(80px);
 
@@ -77,7 +73,7 @@
 
   border-radius: 50%;
 
-  background: rgba(139, 92, 246, 0.07);
+  background: rgba(13, 148, 136, 0.07);
 
   filter: blur(80px);
 
@@ -86,9 +82,7 @@
   animation: backgroundFloat 10s ease-in-out infinite reverse;
 }
 
-/* =========================================================
-   Container
-========================================================= */
+
 
 .skills-container {
   position: relative;
@@ -100,9 +94,7 @@
   animation: sectionReveal 0.8s ease both;
 }
 
-/* =========================================================
-   Title
-========================================================= */
+
 
 .skills-container > h2 {
   position: relative;
@@ -120,8 +112,8 @@
   background: linear-gradient(
     135deg,
     #ffffff 15%,
-    #60a5fa 55%,
-    #a78bfa 100%
+    #2dd4bf 55%,
+    #5eead4 100%
   );
 
   -webkit-background-clip: text;
@@ -131,7 +123,7 @@
   animation: titleReveal 0.8s ease both;
 }
 
-/* Title Line */
+
 
 .skills-container > h2::after {
   content: "";
@@ -147,19 +139,17 @@
 
   background: linear-gradient(
     90deg,
-    #2563eb,
-    #7c3aed
+    #0f766e,
+    #0f766e
   );
 
   box-shadow:
-    0 0 15px rgba(59, 130, 246, 0.35);
+    0 0 15px rgba(20, 184, 166, 0.35);
 
   animation: lineGrow 0.8s 0.3s ease both;
 }
 
-/* =========================================================
-   Skills Grid
-========================================================= */
+
 
 .skills-grid {
   display: grid;
@@ -169,9 +159,7 @@
   gap: 28px;
 }
 
-/* =========================================================
-   Skill Card
-========================================================= */
+
 
 .skill-card {
   position: relative;
@@ -211,7 +199,7 @@
     background 0.35s ease;
 }
 
-/* Staggered animation */
+
 
 .skill-card:nth-child(1) {
   animation-delay: 0.1s;
@@ -245,9 +233,7 @@
   animation-delay: 0.8s;
 }
 
-/* =========================================================
-   Card Top Shine
-========================================================= */
+
 
 .skill-card::before {
   content: "";
@@ -270,9 +256,7 @@
   transition: left 0.6s ease;
 }
 
-/* =========================================================
-   Card Glow
-========================================================= */
+
 
 .skill-card::after {
   content: "";
@@ -287,7 +271,7 @@
 
   border-radius: 50%;
 
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(20, 184, 166, 0.08);
 
   filter: blur(35px);
 
@@ -298,14 +282,12 @@
     opacity 0.5s ease;
 }
 
-/* =========================================================
-   Hover Card
-========================================================= */
+
 
 .skill-card:hover {
   transform: translateY(-8px) scale(1.015);
 
-  border-color: rgba(59, 130, 246, 0.35);
+  border-color: rgba(20, 184, 166, 0.35);
 
   background:
     linear-gradient(
@@ -316,7 +298,7 @@
 
   box-shadow:
     0 28px 60px rgba(0, 0, 0, 0.4),
-    0 0 35px rgba(59, 130, 246, 0.08),
+    0 0 35px rgba(20, 184, 166, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -330,9 +312,7 @@
   opacity: 1;
 }
 
-/* =========================================================
-   Skill Header
-========================================================= */
+
 
 .skill-header {
   position: relative;
@@ -349,9 +329,7 @@
   margin-bottom: 10px;
 }
 
-/* =========================================================
-   Skill Name
-========================================================= */
+
 
 .skill-header h3 {
   margin: 0;
@@ -375,20 +353,18 @@
   transform: translateX(2px);
 }
 
-/* =========================================================
-   Percentage
-========================================================= */
+
 
 .skill-header span {
   flex-shrink: 0;
 
   padding: 5px 9px;
 
-  color: #93c5fd;
+  color: #99f6e4;
 
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(20, 184, 166, 0.08);
 
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(20, 184, 166, 0.15);
 
   border-radius: 7px;
 
@@ -403,16 +379,14 @@
 }
 
 .skill-card:hover .skill-header span {
-  background: rgba(59, 130, 246, 0.14);
+  background: rgba(20, 184, 166, 0.14);
 
-  border-color: rgba(59, 130, 246, 0.3);
+  border-color: rgba(20, 184, 166, 0.3);
 
   transform: scale(1.05);
 }
 
-/* =========================================================
-   Category
-========================================================= */
+
 
 .category {
   position: relative;
@@ -429,9 +403,7 @@
   letter-spacing: 0.3px;
 }
 
-/* =========================================================
-   Progress
-========================================================= */
+
 
 .progress {
   position: relative;
@@ -452,9 +424,7 @@
     inset 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* =========================================================
-   Progress Bar
-========================================================= */
+
 
 .progress-bar {
   position: relative;
@@ -465,13 +435,13 @@
 
   background: linear-gradient(
     90deg,
-    #2563eb,
-    #3b82f6,
-    #7c3aed
+    #0f766e,
+    #14b8a6,
+    #0f766e
   );
 
   box-shadow:
-    0 0 12px rgba(59, 130, 246, 0.4);
+    0 0 12px rgba(20, 184, 166, 0.4);
 
   transform-origin: left;
 
@@ -479,9 +449,7 @@
     progressFill 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* =========================================================
-   Progress Shine
-========================================================= */
+
 
 .progress-bar::after {
   content: "";
@@ -506,9 +474,7 @@
   animation: progressShine 2.2s ease-in-out infinite;
 }
 
-/* =========================================================
-   States
-========================================================= */
+
 
 .loading-state,
 .error-state,
@@ -528,17 +494,17 @@
   animation: fadeUp 0.5s ease both;
 }
 
-/* Loading */
+
 
 .loading-state {
-  color: #93c5fd;
+  color: #99f6e4;
 
-  background: rgba(59, 130, 246, 0.07);
+  background: rgba(20, 184, 166, 0.07);
 
-  border: 1px solid rgba(59, 130, 246, 0.16);
+  border: 1px solid rgba(20, 184, 166, 0.16);
 }
 
-/* Error */
+
 
 .error-state {
   color: #fca5a5;
@@ -548,7 +514,7 @@
   border: 1px solid rgba(239, 68, 68, 0.16);
 }
 
-/* Empty */
+
 
 .empty-state {
   color: #94a3b8;
@@ -558,9 +524,7 @@
   border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
-/* =========================================================
-   Spinner
-========================================================= */
+
 
 .loading-state::after {
   content: "";
@@ -574,18 +538,16 @@
 
   border: 3px solid rgba(148, 163, 184, 0.15);
 
-  border-top-color: #3b82f6;
+  border-top-color: #14b8a6;
 
-  border-right-color: #7c3aed;
+  border-right-color: #0f766e;
 
   border-radius: 50%;
 
   animation: spin 0.8s linear infinite;
 }
 
-/* =========================================================
-   Animations
-========================================================= */
+
 
 @keyframes sectionReveal {
   from {
@@ -685,9 +647,7 @@
   }
 }
 
-/* =========================================================
-   Large Tablet
-========================================================= */
+
 
 @media (max-width: 950px) {
   .skills {
@@ -703,9 +663,7 @@
   }
 }
 
-/* =========================================================
-   Tablet
-========================================================= */
+
 
 @media (max-width: 700px) {
   .skills {
@@ -729,9 +687,7 @@
   }
 }
 
-/* =========================================================
-   Mobile
-========================================================= */
+
 
 @media (max-width: 600px) {
   .skills {
@@ -771,9 +727,7 @@
   }
 }
 
-/* =========================================================
-   Small Mobile
-========================================================= */
+
 
 @media (max-width: 400px) {
   .skills {
@@ -793,9 +747,7 @@
   }
 }
 
-/* =========================================================
-   Accessibility
-========================================================= */
+
 
 @media (prefers-reduced-motion: reduce) {
   .skills,

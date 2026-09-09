@@ -28,6 +28,8 @@ import { ExperienceEdit } from './dashboard/experience/experience-edit/experienc
 import { ProjectsList } from './dashboard/projects/projects-list/projects-list';
 import { ProjectsAdd } from './dashboard/projects/projects-add/projects-add';
 import { ProjectsEdit } from './dashboard/projects/projects-edit/projects-edit';
+import { Login } from './auth/login/login';
+import { authGuard } from './core/guards/auth.guard';
 export const routes: Routes = [
   {
     path: '',
@@ -35,8 +37,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
+        component: homelayout,
       },
       {
         path: 'about',
@@ -70,8 +71,13 @@ export const routes: Routes = [
   },
 
   {
+    path: 'login',
+    component: Login,
+  },
+  {
     path: 'dashboard',
     component: Dashboard,
+    canActivate: [authGuard],
     children: [
       {
         path: 'about',
@@ -182,8 +188,8 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'home',
         pathMatch: 'full',
+        redirectTo: 'home',
       },
     ],
   },

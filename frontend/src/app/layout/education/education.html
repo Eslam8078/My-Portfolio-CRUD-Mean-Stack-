@@ -4,7 +4,7 @@
 
     @if (educations.length) {
       <div class="education-list">
-        @for (education of educations; track education) {
+        @for (education of educations; track education._id ?? education.degree) {
           <div class="education-card">
             <h3>{{ education.degree }}</h3>
             <h4>{{ education.university }}</h4>

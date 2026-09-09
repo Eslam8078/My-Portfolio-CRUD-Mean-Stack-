@@ -1,6 +1,4 @@
-/* =========================================================
-   HOME / HERO
-========================================================= */
+
 
 .home {
   position: relative;
@@ -22,12 +20,12 @@
   background:
     radial-gradient(
       circle at 12% 25%,
-      rgba(59, 130, 246, 0.14),
+      rgba(20, 184, 166, 0.14),
       transparent 32%
     ),
     radial-gradient(
       circle at 88% 70%,
-      rgba(139, 92, 246, 0.12),
+      rgba(13, 148, 136, 0.12),
       transparent 32%
     ),
     linear-gradient(
@@ -41,9 +39,7 @@
 }
 
 
-/* =========================================================
-   BACKGROUND GRID
-========================================================= */
+
 
 .home::before {
   content: "";
@@ -79,9 +75,7 @@
 }
 
 
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
+
 
 .home::after {
   content: "";
@@ -101,7 +95,7 @@
   background:
     radial-gradient(
       circle,
-      rgba(59, 130, 246, 0.14),
+      rgba(20, 184, 166, 0.14),
       transparent 65%
     );
 
@@ -113,9 +107,7 @@
 }
 
 
-/* =========================================================
-   DECORATIVE ORBS
-========================================================= */
+
 
 .home-content::before,
 .home-content::after {
@@ -140,7 +132,7 @@
   background:
     radial-gradient(
       circle,
-      rgba(139, 92, 246, 0.12),
+      rgba(13, 148, 136, 0.12),
       transparent 70%
     );
 
@@ -162,9 +154,7 @@
 }
 
 
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
+
 
 .home-content {
   position: relative;
@@ -185,23 +175,19 @@
 }
 
 
-/* =========================================================
-   TEXT
-========================================================= */
+
 
 .home-text {
   max-width: 700px;
 }
 
 
-/* =========================================================
-   INTRO
-========================================================= */
+
 
 .intro {
   margin: 0 0 14px;
 
-  color: #60a5fa;
+  color: #2dd4bf;
 
   font-size: 1.05rem;
 
@@ -234,15 +220,13 @@
 
   background: linear-gradient(
     90deg,
-    #3b82f6,
-    #8b5cf6
+    #14b8a6,
+    #0f766e
   );
 }
 
 
-/* =========================================================
-   NAME
-========================================================= */
+
 
 .home-text h1 {
   position: relative;
@@ -261,8 +245,8 @@
     linear-gradient(
       135deg,
       #ffffff 10%,
-      #60a5fa 50%,
-      #a78bfa 100%
+      #2dd4bf 50%,
+      #5eead4 100%
     );
 
   -webkit-background-clip: text;
@@ -280,7 +264,7 @@
 }
 
 
-/* Animated Shine */
+
 
 .home-text h1::after {
   content: "";
@@ -309,9 +293,7 @@
 }
 
 
-/* =========================================================
-   JOB TITLE
-========================================================= */
+
 
 .home-text h2 {
   margin: 0 0 25px;
@@ -332,9 +314,7 @@
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
+
 
 .description {
   max-width: 650px;
@@ -357,9 +337,7 @@
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+
 
 .home-buttons {
   display: flex;
@@ -415,7 +393,7 @@
 }
 
 
-/* Button Shine */
+
 
 .home-buttons a::before {
   content: "";
@@ -446,7 +424,7 @@
 }
 
 
-/* First Button */
+
 
 .home-buttons a:first-child {
   color: #ffffff;
@@ -456,8 +434,8 @@
   background:
     linear-gradient(
       135deg,
-      #2563eb,
-      #7c3aed
+      #0f766e,
+      #0f766e
     );
 
   box-shadow:
@@ -465,49 +443,47 @@
 }
 
 
-/* Button Hover */
+
 
 .home-buttons a:hover {
   color: #ffffff;
 
   transform: translateY(-4px);
 
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(20, 184, 166, 0.1);
 
-  border-color: rgba(59, 130, 246, 0.35);
+  border-color: rgba(20, 184, 166, 0.35);
 
   box-shadow:
     0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
 
-/* First Button Hover */
+
 
 .home-buttons a:first-child:hover {
   background:
     linear-gradient(
       135deg,
-      #2563eb,
-      #7c3aed
+      #0f766e,
+      #0f766e
     );
 
   border-color: transparent;
 
   box-shadow:
-    0 18px 40px rgba(37, 99, 235, 0.35);
+    0 18px 40px rgba(20, 184, 166, 0.35);
 }
 
 
-/* Click */
+
 
 .home-buttons a:active {
   transform: translateY(-1px) scale(0.98);
 }
 
 
-/* =========================================================
-   IMAGE CONTAINER
-========================================================= */
+
 
 .home-image {
   position: relative;
@@ -529,9 +505,7 @@
 }
 
 
-/* =========================================================
-   IMAGE GLOW
-========================================================= */
+
 
 .home-image::before {
   content: "";
@@ -546,8 +520,8 @@
   background:
     radial-gradient(
       circle,
-      rgba(59, 130, 246, 0.22),
-      rgba(139, 92, 246, 0.12) 45%,
+      rgba(20, 184, 166, 0.22),
+      rgba(13, 148, 136, 0.12) 45%,
       transparent 70%
     );
 
@@ -560,9 +534,7 @@
 }
 
 
-/* =========================================================
-   IMAGE RING
-========================================================= */
+
 
 .home-image::after {
   content: "";
@@ -574,9 +546,9 @@
 
   border-radius: 50%;
 
-  border: 1px solid rgba(96, 165, 250, 0.15);
+  border: 1px solid rgba(20, 184, 166, 0.15);
 
-  border-top-color: rgba(96, 165, 250, 0.5);
+  border-top-color: rgba(45, 212, 191, 0.5);
 
   animation:
     ringRotate 12s linear infinite;
@@ -585,9 +557,7 @@
 }
 
 
-/* =========================================================
-   IMAGE
-========================================================= */
+
 
 .home-image img {
   position: relative;
@@ -601,10 +571,10 @@
 
   border-radius: 50%;
 
-  border: 5px solid rgba(59, 130, 246, 0.45);
+  border: 5px solid rgba(20, 184, 166, 0.45);
 
   box-shadow:
-    0 0 0 10px rgba(59, 130, 246, 0.04),
+    0 0 0 10px rgba(20, 184, 166, 0.04),
     0 30px 70px rgba(0, 0, 0, 0.45);
 
   animation:
@@ -616,7 +586,7 @@
 }
 
 
-/* Image Hover */
+
 
 .home-image img:hover {
   transform:
@@ -624,15 +594,13 @@
     rotate(1deg);
 
   box-shadow:
-    0 0 0 12px rgba(59, 130, 246, 0.06),
+    0 0 0 12px rgba(20, 184, 166, 0.06),
     0 35px 80px rgba(0, 0, 0, 0.55),
-    0 0 40px rgba(59, 130, 246, 0.12);
+    0 0 40px rgba(20, 184, 166, 0.12);
 }
 
 
-/* =========================================================
-   LOADING / ERROR / EMPTY
-========================================================= */
+
 
 .loading-state,
 .error-state,
@@ -656,18 +624,18 @@
 }
 
 
-/* Loading */
+
 
 .loading-state {
-  color: #93c5fd;
+  color: #99f6e4;
 
-  background: rgba(59, 130, 246, 0.07);
+  background: rgba(20, 184, 166, 0.07);
 
-  border: 1px solid rgba(59, 130, 246, 0.16);
+  border: 1px solid rgba(20, 184, 166, 0.16);
 }
 
 
-/* Error */
+
 
 .error-state {
   color: #fca5a5;
@@ -678,7 +646,7 @@
 }
 
 
-/* Empty */
+
 
 .empty-state {
   color: #94a3b8;
@@ -689,9 +657,7 @@
 }
 
 
-/* =========================================================
-   LOADING SPINNER
-========================================================= */
+
 
 .loading-state::after {
   content: "";
@@ -705,9 +671,9 @@
 
   border: 3px solid rgba(148, 163, 184, 0.15);
 
-  border-top-color: #3b82f6;
+  border-top-color: #14b8a6;
 
-  border-right-color: #8b5cf6;
+  border-right-color: #0f766e;
 
   border-radius: 50%;
 
@@ -715,9 +681,7 @@
 }
 
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
+
 
 @keyframes fadeSlideUp {
   from {
@@ -892,9 +856,7 @@
 }
 
 
-/* =========================================================
-   LARGE TABLET
-========================================================= */
+
 
 @media (max-width: 1000px) {
 
@@ -927,9 +889,7 @@
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+
 
 @media (max-width: 800px) {
 
@@ -988,9 +948,7 @@
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+
 
 @media (max-width: 600px) {
 
@@ -1064,9 +1022,7 @@
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+
 
 @media (max-width: 400px) {
 
@@ -1107,9 +1063,7 @@
 }
 
 
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
+
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1120,4 +1074,20 @@
 
     transition: none !important;
   }
+}
+.home-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin: 20px 0;
+}
+
+.home-meta span,
+.home-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-meta a:hover {
+  text-decoration: underline;
 }

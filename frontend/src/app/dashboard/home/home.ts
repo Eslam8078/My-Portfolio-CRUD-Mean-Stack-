@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -18,6 +18,9 @@ export class Home implements OnInit {
     name: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
+    email: new FormControl(''),
+    phone: new FormControl(''),
+    location: new FormControl(''),
     github: new FormControl(''),
     linkedin: new FormControl(''),
     image: new FormControl<File | null>(null),
@@ -28,29 +31,25 @@ export class Home implements OnInit {
   successMessage = '';
   errorMessage = '';
 
-  constructor(
-    private homeService: HomeService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private readonly homeService: HomeService) {}
 
   ngOnInit(): void {
     this.homeService.getHome().subscribe({
-      next: data => {
+      next: (data) => {
         this.myForm.patchValue({
           name: data.name || '',
           title: data.title || '',
           description: data.description || '',
+          email: data.email || '',
+          phone: data.phone || '',
+          location: data.location || '',
           github: data.github || '',
           linkedin: data.linkedin || '',
         });
-
         this.resumeUrl = data.resumeUrl || '';
-        this.cdr.detectChanges();
       },
-
       error: () => {
         this.errorMessage = 'Failed to load Home';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -86,6 +85,9 @@ export class Home implements OnInit {
     formData.append('name', data.name || '');
     formData.append('title', data.title || '');
     formData.append('description', data.description || '');
+    formData.append('email', data.email || '');
+    formData.append('phone', data.phone || '');
+    formData.append('location', data.location || '');
     formData.append('github', data.github || '');
     formData.append('linkedin', data.linkedin || '');
 
@@ -98,18 +100,12 @@ export class Home implements OnInit {
     }
 
     this.homeService.updateHome(formData).subscribe({
-      next: response => {
+      next: (response) => {
         this.successMessage = 'Home updated successfully!';
-
         this.resumeUrl = response.resumeUrl || this.resumeUrl;
-
-        this.cdr.detectChanges();
       },
-
-      error: error => {
-        console.error(error);
+      error: () => {
         this.errorMessage = 'Failed to update Home';
-        this.cdr.detectChanges();
       },
     });
   }

@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { IHome } from '../models/home.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
-  private apiUrl = 'http://localhost:3000/api/home';
+  private readonly apiUrl = `${environment.apiBaseUrl}/home`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getHome() {
-    return this.http.get<IHome>(this.apiUrl);
+    return this.http.get<IHome>(this.apiUrl, { params: { t: Date.now() } });
   }
 
   updateHome(data: FormData) {

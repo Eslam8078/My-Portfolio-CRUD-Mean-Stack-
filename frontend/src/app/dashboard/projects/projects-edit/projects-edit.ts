@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IProject } from '../../../core/models/projects.model';
@@ -18,8 +18,7 @@ export class ProjectsEdit implements OnInit {
 
   constructor(
     private projectsService: ProjectsService,
-    private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -66,12 +65,9 @@ export class ProjectsEdit implements OnInit {
         (data.technologies?.length ? data.technologies : ['']).forEach(tech =>
           this.technologies.push(new FormControl(tech, Validators.required))
         );
-
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to load project';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -88,11 +84,9 @@ export class ProjectsEdit implements OnInit {
     this.projectsService.updateProject(this.projectId, this.myForm.value).subscribe({
       next: () => {
         this.successMessage = 'Project updated successfully';
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to update project';
-        this.cdr.detectChanges();
       },
     });
   }

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ExperienceService } from '../../../core/services/experience-service';
@@ -15,8 +15,7 @@ export class ExperienceAdd implements OnInit {
   errorMessage = '';
 
   constructor(
-    private experienceService: ExperienceService,
-    private cdr: ChangeDetectorRef
+    private experienceService: ExperienceService
   ) {}
 
   ngOnInit(): void {
@@ -58,11 +57,9 @@ export class ExperienceAdd implements OnInit {
         this.myForm.reset();
         this.highlights.clear();
         this.addHighlight();
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to add experience';
-        this.cdr.detectChanges();
       },
     });
   }

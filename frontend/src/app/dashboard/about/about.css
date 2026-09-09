@@ -20,7 +20,7 @@ h1 {
   letter-spacing: -0.5px;
 }
 
-/* Form */
+
 
 form {
   padding: 30px;
@@ -42,7 +42,7 @@ form {
   font-weight: 600;
 }
 
-/* Inputs */
+
 
 input,
 textarea {
@@ -76,7 +76,7 @@ textarea {
   line-height: 1.6;
 }
 
-/* File */
+
 
 input[type="file"] {
   padding: 10px;
@@ -101,7 +101,7 @@ input[type="file"]::file-selector-button:hover {
   color: #fff;
 }
 
-/* Button */
+
 
 button {
   width: 100%;
@@ -132,7 +132,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Messages */
+
 
 .error,
 .success {
@@ -154,7 +154,7 @@ button:disabled {
   font-weight: 600;
 }
 
-/* Responsive */
+
 
 @media (max-width: 900px) {
   .about {

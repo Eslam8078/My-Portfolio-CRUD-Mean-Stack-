@@ -1,32 +1,29 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
-} from "@angular/forms";
-import { AboutService } from "../../core/services/about-service";
+} from '@angular/forms';
+import { AboutService } from '../../core/services/about-service';
 
 @Component({
-  selector: "app-about",
+  selector: 'app-about',
   imports: [ReactiveFormsModule],
-  templateUrl: "./about.html",
-  styleUrl: "./about.css",
+  templateUrl: './about.html',
+  styleUrl: './about.css',
 })
 export class About implements OnInit {
-  constructor(
-    private aboutService: AboutService,
-    private cdr: ChangeDetectorRef,
-  ) {}
-
   myForm = new FormGroup({
-    title: new FormControl("", Validators.required),
-    description: new FormControl("", Validators.required),
+    title: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
     image: new FormControl<File | null>(null),
   });
 
-  successMessage = "";
-  errorMessage = "";
+  successMessage = '';
+  errorMessage = '';
+
+  constructor(private readonly aboutService: AboutService) {}
 
   ngOnInit(): void {
     this.aboutService.getAbout().subscribe((data) => {
@@ -34,8 +31,6 @@ export class About implements OnInit {
         title: data.title,
         description: data.description,
       });
-
-      this.cdr.detectChanges();
     });
   }
 
@@ -48,8 +43,8 @@ export class About implements OnInit {
   }
 
   onSubmit(): void {
-    this.successMessage = "";
-    this.errorMessage = "";
+    this.successMessage = '';
+    this.errorMessage = '';
 
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
@@ -57,24 +52,20 @@ export class About implements OnInit {
     }
 
     const formData = new FormData();
-
-    formData.append("title", this.myForm.value.title || "");
-    formData.append("description", this.myForm.value.description || "");
+    formData.append('title', this.myForm.value.title || '');
+    formData.append('description', this.myForm.value.description || '');
 
     const image = this.myForm.value.image;
-
     if (image) {
-      formData.append("image", image);
+      formData.append('image', image);
     }
 
     this.aboutService.updateAbout(formData).subscribe({
       next: () => {
-        this.successMessage = "About updated successfully";
-        this.cdr.detectChanges();
+        this.successMessage = 'About updated successfully';
       },
       error: () => {
-        this.errorMessage = "Failed to update About";
-        this.cdr.detectChanges();
+        this.errorMessage = 'Failed to update About';
       },
     });
   }

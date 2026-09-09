@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IEducation } from '../../../core/models/education.model';
 import { EducationService } from '../../../core/services/education-service';
@@ -15,10 +15,7 @@ export class ListEducation implements OnInit {
   successMessage = '';
   errorMessage = '';
 
-  constructor(
-    private educationService: EducationService,
-    private cdr: ChangeDetectorRef,
-  ) {}
+  constructor(private educationService: EducationService) {}
 
   ngOnInit(): void {
     this.getEducation();
@@ -28,12 +25,10 @@ export class ListEducation implements OnInit {
     this.educationService.getEducation().subscribe({
       next: (data) => {
         this.educations = data;
-        this.cdr.detectChanges();
       },
 
       error: () => {
         this.errorMessage = 'Failed to load education';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -51,14 +46,10 @@ export class ListEducation implements OnInit {
         this.successMessage = 'Education deleted successfully';
 
         this.getEducation();
-
-        this.cdr.detectChanges();
       },
 
       error: () => {
         this.errorMessage = 'Failed to delete education';
-
-        this.cdr.detectChanges();
       },
     });
   }

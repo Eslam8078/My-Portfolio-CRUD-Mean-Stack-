@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IExperience } from '../../core/models/experience.model';
 import { ExperienceService } from '../../core/services/experience-service';
 
@@ -12,19 +12,17 @@ export class Experience implements OnInit {
   loading = true;
   errorMessage = '';
 
-  constructor(private experienceService: ExperienceService, private cdr: ChangeDetectorRef) {}
+  constructor(private readonly experienceService: ExperienceService) {}
 
   ngOnInit(): void {
     this.experienceService.getExperience().subscribe({
       next: (data) => {
         this.experiences = data;
         this.loading = false;
-        this.cdr.detectChanges();
       },
       error: () => {
         this.loading = false;
         this.errorMessage = 'Unable to load experience. Please try again.';
-        this.cdr.detectChanges();
       },
     });
   }

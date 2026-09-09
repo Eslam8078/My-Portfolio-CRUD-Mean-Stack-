@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { IEducation } from '../../../core/models/education.model';
@@ -20,7 +20,6 @@ export class EditEducation implements OnInit {
   constructor(
     private educationService: EducationService,
     private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
@@ -41,14 +40,10 @@ export class EditEducation implements OnInit {
     this.educationService.getEducationById(this.educationId).subscribe({
       next: (data: IEducation) => {
         this.myForm.patchValue(data);
-
-        this.cdr.detectChanges();
       },
 
       error: () => {
         this.errorMessage = 'Failed to load education';
-
-        this.cdr.detectChanges();
       },
     });
   }
@@ -60,22 +55,16 @@ export class EditEducation implements OnInit {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
 
-      this.cdr.detectChanges();
-
       return;
     }
 
     this.educationService.updateEducation(this.educationId, this.myForm.value).subscribe({
       next: () => {
         this.successMessage = 'Education updated successfully';
-
-        this.cdr.detectChanges();
       },
 
       error: () => {
         this.errorMessage = 'Failed to update education';
-
-        this.cdr.detectChanges();
       },
     });
   }

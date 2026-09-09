@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-import { IAbout } from '../models/about.model';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { IAbout } from '../models/about.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AboutService {
-    constructor (private _http:HttpClient){}
-    private apiURL= 'http://localhost:3000/api/about'
+  private readonly apiUrl = `${environment.apiBaseUrl}/about`;
 
-    getAbout(){
-        return this._http.get<IAbout>(this.apiURL, { params: { t: Date.now() } })
-    }
-    updateAbout(formData: FormData ){
-        return this._http.put<IAbout>(this.apiURL,formData)
-    }
+  constructor(private readonly http: HttpClient) {}
 
+  getAbout() {
+    return this.http.get<IAbout>(this.apiUrl, { params: { t: Date.now() } });
+  }
+
+  updateAbout(formData: FormData) {
+    return this.http.put<IAbout>(this.apiUrl, formData);
+  }
 }

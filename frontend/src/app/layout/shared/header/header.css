@@ -1,6 +1,4 @@
-/* ========================================
-   Header
-======================================== */
+
 
 .header {
   position: sticky;
@@ -23,9 +21,7 @@
     0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ========================================
-   Header Container
-======================================== */
+
 
 .header-container {
   width: 100%;
@@ -49,9 +45,7 @@
   gap: 30px;
 }
 
-/* ========================================
-   Logo
-======================================== */
+
 
 .logo {
   position: relative;
@@ -79,45 +73,57 @@
     transform 0.25s ease;
 }
 
-.logo span {
+.logo-mark {
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
-  width: 34px;
-  height: 34px;
-
-  margin-right: 3px;
-
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  margin-right: 4px;
   color: #ffffff;
+  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 55%, #2dd4bf 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  box-shadow: 0 8px 22px rgba(20, 184, 166, 0.24);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
 
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #7c3aed
-  );
-
-  border-radius: 9px;
-
-  font-size: 1rem;
-
+.logo-name {
+  display: inline-block;
+  color: #f8fafc;
+  font-size: 1.02rem;
   font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: color 220ms ease;
+}
 
-  box-shadow:
-    0 6px 18px rgba(37, 99, 235, 0.25);
+.logo-fallback-text {
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.logo:hover .logo-mark {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(20, 184, 166, 0.32);
+}
+
+.logo:hover .logo-name {
+  color: #ccfbf1;
 }
 
 .logo:hover {
-  color: #60a5fa;
-
+  color: #2dd4bf;
   transform: translateY(-1px);
 }
 
-/* ========================================
-   Desktop Menu
-======================================== */
 
 .desktop-menu {
   display: flex;
@@ -127,9 +133,7 @@
   gap: 6px;
 }
 
-/* ========================================
-   Desktop Links
-======================================== */
+
 
 .desktop-menu > a:not(.resume-btn) {
   position: relative;
@@ -160,20 +164,18 @@
 .desktop-menu > a:not(.resume-btn):hover {
   color: #f8fafc;
 
-  background: rgba(59, 130, 246, 0.07);
+  background: rgba(20, 184, 166, 0.07);
 }
 
-/* ========================================
-   Active Link
-======================================== */
+
 
 .desktop-menu > a.active:not(.resume-btn) {
-  color: #60a5fa;
+  color: #2dd4bf;
 
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(20, 184, 166, 0.08);
 }
 
-/* Active underline */
+
 
 .desktop-menu > a.active:not(.resume-btn)::after {
   content: "";
@@ -194,14 +196,12 @@
 
   background: linear-gradient(
     90deg,
-    #3b82f6,
-    #8b5cf6
+    #14b8a6,
+    #0f766e
   );
 }
 
-/* ========================================
-   Resume Button
-======================================== */
+
 
 .resume-btn {
   display: inline-flex;
@@ -218,8 +218,8 @@
 
   background: linear-gradient(
     135deg,
-    #2563eb,
-    #7c3aed
+    #0f766e,
+    #0f766e
   );
 
   border: 1px solid transparent;
@@ -233,7 +233,7 @@
   font-weight: 700;
 
   box-shadow:
-    0 8px 20px rgba(37, 99, 235, 0.2);
+    0 8px 20px rgba(20, 184, 166, 0.2);
 
   transition:
     transform 0.25s ease,
@@ -247,36 +247,28 @@
   filter: brightness(1.08);
 
   box-shadow:
-    0 12px 28px rgba(37, 99, 235, 0.3);
+    0 12px 28px rgba(20, 184, 166, 0.3);
 }
 
-/* ========================================
-   Menu Toggle
-======================================== */
+
 
 .menu-toggle {
   display: none;
 }
 
-/* ========================================
-   Mobile Actions
-======================================== */
+
 
 .mobile-actions {
   display: none;
 }
 
-/* ========================================
-   Mobile Menu
-======================================== */
+
 
 .mobile-menu {
   display: none;
 }
 
-/* ========================================
-   Tablet
-======================================== */
+
 
 @media (max-width: 1050px) {
   .header-container {
@@ -300,9 +292,7 @@
   }
 }
 
-/* ========================================
-   Mobile Header
-======================================== */
+
 
 @media (max-width: 800px) {
   .header-container {
@@ -311,13 +301,13 @@
     padding: 0 20px;
   }
 
-  /* Hide desktop */
+  
 
   .desktop-menu {
     display: none;
   }
 
-  /* Show mobile actions */
+  
 
   .mobile-actions {
     display: flex;
@@ -327,9 +317,7 @@
     justify-content: center;
   }
 
-  /* ========================================
-     Hamburger Button
-  ======================================== */
+  
 
   .menu-button {
     position: relative;
@@ -357,14 +345,12 @@
   }
 
   .menu-button:hover {
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(20, 184, 166, 0.1);
 
-    border-color: rgba(59, 130, 246, 0.25);
+    border-color: rgba(20, 184, 166, 0.25);
   }
 
-  /* ========================================
-     Hamburger Icon
-  ======================================== */
+  
 
   .menu-icon,
   .menu-icon::before,
@@ -404,9 +390,7 @@
     top: 7px;
   }
 
-  /* ========================================
-     Hamburger -> X
-  ======================================== */
+  
 
   .menu-toggle:checked
     ~ .mobile-actions
@@ -426,9 +410,7 @@
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* ========================================
-     Mobile Menu
-  ======================================== */
+  
 
   .mobile-menu {
     position: absolute;
@@ -474,7 +456,7 @@
       visibility 0.3s ease;
   }
 
-  /* Open Menu */
+  
 
   .menu-toggle:checked
     ~ .mobile-menu {
@@ -487,9 +469,7 @@
     pointer-events: auto;
   }
 
-  /* ========================================
-     Mobile Links
-  ======================================== */
+  
 
   .mobile-menu > a {
     display: flex;
@@ -526,26 +506,24 @@
   .mobile-menu > a:hover {
     color: #f8fafc;
 
-    background: rgba(59, 130, 246, 0.08);
+    background: rgba(20, 184, 166, 0.08);
 
-    border-color: rgba(59, 130, 246, 0.12);
+    border-color: rgba(20, 184, 166, 0.12);
 
     transform: translateX(3px);
   }
 
-  /* Active */
+  
 
   .mobile-menu > a.active {
-    color: #60a5fa;
+    color: #2dd4bf;
 
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(20, 184, 166, 0.1);
 
-    border-color: rgba(59, 130, 246, 0.15);
+    border-color: rgba(20, 184, 166, 0.15);
   }
 
-  /* ========================================
-     Mobile Resume
-  ======================================== */
+  
 
   .mobile-resume {
     justify-content: center;
@@ -556,27 +534,25 @@
 
     background: linear-gradient(
       135deg,
-      #2563eb,
-      #7c3aed
+      #0f766e,
+      #0f766e
     ) !important;
 
     border-color: transparent !important;
 
     box-shadow:
-      0 8px 20px rgba(37, 99, 235, 0.2);
+      0 8px 20px rgba(20, 184, 166, 0.2);
   }
 
   .mobile-resume:hover {
     transform: translateY(-2px) !important;
 
     box-shadow:
-      0 12px 25px rgba(37, 99, 235, 0.3);
+      0 12px 25px rgba(20, 184, 166, 0.3);
   }
 }
 
-/* ========================================
-   Small Mobile
-======================================== */
+
 
 @media (max-width: 400px) {
   .header-container {
@@ -587,7 +563,7 @@
     font-size: 1.2rem;
   }
 
-  .logo span {
+  .logo-mark {
     width: 31px;
     height: 31px;
 
@@ -606,9 +582,7 @@
   }
 }
 
-/* ========================================
-   Accessibility
-======================================== */
+
 
 @media (prefers-reduced-motion: reduce) {
   .logo,

@@ -1,6 +1,4 @@
-/* ========================================
-   Education Section
-======================================== */
+
 
 .education {
   position: relative;
@@ -19,12 +17,12 @@
   background:
     radial-gradient(
       circle at 10% 20%,
-      rgba(59, 130, 246, 0.09),
+      rgba(20, 184, 166, 0.09),
       transparent 35%
     ),
     radial-gradient(
       circle at 90% 80%,
-      rgba(139, 92, 246, 0.09),
+      rgba(13, 148, 136, 0.09),
       transparent 35%
     ),
     linear-gradient(
@@ -38,9 +36,7 @@
 }
 
 
-/* ========================================
-   Background Decoration
-======================================== */
+
 
 .education::before {
   content: "";
@@ -58,7 +54,7 @@
   background:
     radial-gradient(
       circle,
-      rgba(59, 130, 246, 0.12),
+      rgba(20, 184, 166, 0.12),
       transparent 70%
     );
 
@@ -85,7 +81,7 @@
   background:
     radial-gradient(
       circle,
-      rgba(139, 92, 246, 0.1),
+      rgba(13, 148, 136, 0.1),
       transparent 70%
     );
 
@@ -97,9 +93,7 @@
 }
 
 
-/* ========================================
-   Container
-======================================== */
+
 
 .education-container {
   position: relative;
@@ -112,9 +106,7 @@
 }
 
 
-/* ========================================
-   Title
-======================================== */
+
 
 .education-container > h2 {
   position: relative;
@@ -133,8 +125,8 @@
     linear-gradient(
       135deg,
       #ffffff 10%,
-      #60a5fa 55%,
-      #a78bfa 100%
+      #2dd4bf 55%,
+      #5eead4 100%
     );
 
   -webkit-background-clip: text;
@@ -146,9 +138,7 @@
 }
 
 
-/* ========================================
-   Title Underline
-======================================== */
+
 
 .education-container > h2::after {
   content: "";
@@ -165,20 +155,18 @@
   background:
     linear-gradient(
       90deg,
-      #3b82f6,
-      #8b5cf6
+      #14b8a6,
+      #0f766e
     );
 
   box-shadow:
-    0 0 15px rgba(59, 130, 246, 0.35);
+    0 0 15px rgba(20, 184, 166, 0.35);
 
   animation: underlineReveal 0.8s 0.2s ease both;
 }
 
 
-/* ========================================
-   Education List
-======================================== */
+
 
 .education-list {
   display: flex;
@@ -191,9 +179,7 @@
 }
 
 
-/* ========================================
-   Education Card
-======================================== */
+
 
 .education-card {
   position: relative;
@@ -239,9 +225,7 @@
 }
 
 
-/* ========================================
-   Stagger Animation
-======================================== */
+
 
 .education-card:nth-child(1) {
   animation-delay: 0.15s;
@@ -264,9 +248,7 @@
 }
 
 
-/* ========================================
-   Animated Left Accent
-======================================== */
+
 
 .education-card::before {
   content: "";
@@ -282,9 +264,9 @@
   background:
     linear-gradient(
       180deg,
-      #3b82f6,
-      #8b5cf6,
-      #3b82f6
+      #14b8a6,
+      #0f766e,
+      #14b8a6
     );
 
   background-size: 100% 200%;
@@ -295,9 +277,7 @@
 }
 
 
-/* ========================================
-   Card Glow
-======================================== */
+
 
 .education-card::after {
   content: "";
@@ -315,7 +295,7 @@
   background:
     radial-gradient(
       circle,
-      rgba(59, 130, 246, 0.12),
+      rgba(20, 184, 166, 0.12),
       transparent 70%
     );
 
@@ -331,9 +311,7 @@
 }
 
 
-/* ========================================
-   Hover Card
-======================================== */
+
 
 .education-card:hover {
   transform:
@@ -341,7 +319,7 @@
     scale(1.01);
 
   border-color:
-    rgba(59, 130, 246, 0.32);
+    rgba(20, 184, 166, 0.32);
 
   background:
     linear-gradient(
@@ -352,7 +330,7 @@
 
   box-shadow:
     0 30px 65px rgba(0, 0, 0, 0.42),
-    0 0 40px rgba(59, 130, 246, 0.07),
+    0 0 40px rgba(20, 184, 166, 0.07),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -363,9 +341,7 @@
 }
 
 
-/* ========================================
-   Shine Effect
-======================================== */
+
 
 .education-card .shine {
   position: absolute;
@@ -390,9 +366,7 @@
 }
 
 
-/* ========================================
-   Degree
-======================================== */
+
 
 .education-card h3 {
   position: relative;
@@ -422,9 +396,7 @@
 }
 
 
-/* ========================================
-   University
-======================================== */
+
 
 .education-card h4 {
   position: relative;
@@ -432,7 +404,7 @@
 
   margin: 0 0 24px;
 
-  color: #60a5fa;
+  color: #2dd4bf;
 
   font-size: 1.1rem;
 
@@ -446,15 +418,13 @@
 }
 
 .education-card:hover h4 {
-  color: #93c5fd;
+  color: #99f6e4;
 
   transform: translateX(3px);
 }
 
 
-/* ========================================
-   Information
-======================================== */
+
 
 .education-info {
   position: relative;
@@ -472,9 +442,7 @@
 }
 
 
-/* ========================================
-   Info Badge
-======================================== */
+
 
 .education-info span {
   position: relative;
@@ -509,7 +477,7 @@
 }
 
 
-/* Badge Shine */
+
 
 .education-info span::after {
   content: "";
@@ -536,7 +504,7 @@
 }
 
 
-/* Badge Hover */
+
 
 .education-info span:hover {
   transform: translateY(-3px);
@@ -558,39 +526,33 @@
 }
 
 
-/* ========================================
-   Period Badge
-======================================== */
+
 
 .education-info span:first-child {
-  color: #93c5fd;
+  color: #99f6e4;
 
   background:
-    rgba(59, 130, 246, 0.09);
+    rgba(20, 184, 166, 0.09);
 
   border-color:
-    rgba(59, 130, 246, 0.18);
+    rgba(20, 184, 166, 0.18);
 }
 
 
-/* ========================================
-   Location Badge
-======================================== */
+
 
 .education-info span:last-child {
   color: #c4b5fd;
 
   background:
-    rgba(139, 92, 246, 0.09);
+    rgba(13, 148, 136, 0.09);
 
   border-color:
-    rgba(139, 92, 246, 0.18);
+    rgba(13, 148, 136, 0.18);
 }
 
 
-/* ========================================
-   Description
-======================================== */
+
 
 .education-card p {
   position: relative;
@@ -615,9 +577,7 @@
 }
 
 
-/* ========================================
-   Loading / Error / Empty
-======================================== */
+
 
 .loading-state,
 .error-state,
@@ -643,24 +603,20 @@
 }
 
 
-/* ========================================
-   Loading
-======================================== */
+
 
 .loading-state {
-  color: #93c5fd;
+  color: #99f6e4;
 
   background:
-    rgba(59, 130, 246, 0.07);
+    rgba(20, 184, 166, 0.07);
 
   border:
-    1px solid rgba(59, 130, 246, 0.16);
+    1px solid rgba(20, 184, 166, 0.16);
 }
 
 
-/* ========================================
-   Error
-======================================== */
+
 
 .error-state {
   color: #fca5a5;
@@ -673,9 +629,7 @@
 }
 
 
-/* ========================================
-   Empty
-======================================== */
+
 
 .empty-state {
   color: #94a3b8;
@@ -688,9 +642,7 @@
 }
 
 
-/* ========================================
-   Loading Spinner
-======================================== */
+
 
 .loading-state::after {
   content: "";
@@ -706,7 +658,7 @@
     3px solid rgba(148, 163, 184, 0.15);
 
   border-top-color:
-    #3b82f6;
+    #14b8a6;
 
   border-radius: 50%;
 
@@ -715,9 +667,7 @@
 }
 
 
-/* ========================================
-   Animations
-======================================== */
+
 
 @keyframes sectionReveal {
   from {
@@ -858,9 +808,7 @@
 }
 
 
-/* ========================================
-   Large Tablet
-======================================== */
+
 
 @media (max-width: 1000px) {
   .education {
@@ -873,9 +821,7 @@
 }
 
 
-/* ========================================
-   Tablet
-======================================== */
+
 
 @media (max-width: 800px) {
   .education {
@@ -894,9 +840,7 @@
 }
 
 
-/* ========================================
-   Mobile
-======================================== */
+
 
 @media (max-width: 600px) {
   .education {
@@ -967,9 +911,7 @@
 }
 
 
-/* ========================================
-   Small Mobile
-======================================== */
+
 
 @media (max-width: 400px) {
   .education {
@@ -996,9 +938,7 @@
 }
 
 
-/* ========================================
-   Accessibility
-======================================== */
+
 
 @media (prefers-reduced-motion: reduce) {
   .education::before,

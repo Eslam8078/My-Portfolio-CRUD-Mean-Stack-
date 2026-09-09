@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ISkill } from '../../../core/models/skills.model';
@@ -18,8 +18,7 @@ export class SkillsEdit implements OnInit {
 
   constructor(
     private skillsService: SkillsService,
-    private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -41,11 +40,9 @@ export class SkillsEdit implements OnInit {
     this.skillsService.getSkillById(this.skillId).subscribe({
       next: (data: ISkill) => {
         this.myForm.patchValue(data);
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to load skill';
-        this.cdr.detectChanges();
       },
     });
   }
@@ -62,11 +59,9 @@ export class SkillsEdit implements OnInit {
     this.skillsService.updateSkill(this.skillId, this.myForm.value).subscribe({
       next: () => {
         this.successMessage = 'Skill updated successfully';
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to update skill';
-        this.cdr.detectChanges();
       },
     });
   }

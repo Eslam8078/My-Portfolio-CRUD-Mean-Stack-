@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ProjectsService } from '../../../core/services/projects-service';
@@ -15,8 +15,7 @@ export class ProjectsAdd implements OnInit {
   errorMessage = '';
 
   constructor(
-    private projectsService: ProjectsService,
-    private cdr: ChangeDetectorRef
+    private projectsService: ProjectsService
   ) {}
 
   ngOnInit(): void {
@@ -60,11 +59,9 @@ export class ProjectsAdd implements OnInit {
         this.myForm.reset();
         this.technologies.clear();
         this.addTech();
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to add project';
-        this.cdr.detectChanges();
       },
     });
   }

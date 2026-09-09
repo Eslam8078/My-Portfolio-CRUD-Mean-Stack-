@@ -1,13 +1,12 @@
 <header class="header">
   <div class="header-container">
-    <!-- Logo -->
-    <a routerLink="/" class="logo">
-      @if (home) {
-        <span>
-          {{ home.name.charAt(0) }}
-        </span>
-
-        {{ home.name.substring(1) }}
+<a routerLink="/" class="logo" aria-label="Home">
+      @if (home?.name) {
+        <span class="logo-mark">{{ home.name.charAt(0) }}</span>
+        <span class="logo-name">{{ home.name.substring(1) }}</span>
+      } @else {
+        <span class="logo-mark">EA</span>
+        <span class="logo-name">Eslam Ayman</span>
       }
     </a>
 
@@ -20,7 +19,7 @@
     </div>
 
     <nav class="desktop-menu">
-      <a routerLink="home" routerLinkActive="active"> Home </a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Home </a>
 
       <a routerLink="education" routerLinkActive="active"> Education </a>
 
@@ -35,20 +34,19 @@
       <a routerLink="about" routerLinkActive="active"> About </a>
 
       @if (home?.resumeUrl) {
-        <a
-          [href]="resumeUrl(home.resumeUrl)"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="resume-btn"
-        >
-          Resume
-        </a>
+        <a [href]="resumeUrl(home.resumeUrl)" target="_blank" rel="noopener noreferrer" class="resume-btn">Resume</a>
+      }
+      @if (auth.user()) {
+        <a routerLink="/dashboard" class="resume-btn">Dashboard</a>
+        <button type="button" class="logout-btn" (click)="auth.logout()">Logout</button>
+      } @else {
+        <a routerLink="/login" class="resume-btn">Admin Login</a>
       }
     </nav>
   </div>
 
   <nav class="mobile-menu">
-    <a routerLink="home" routerLinkActive="active"> Home </a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Home </a>
 
     <a routerLink="education" routerLinkActive="active"> Education </a>
 
@@ -63,14 +61,13 @@
     <a routerLink="about" routerLinkActive="active"> About </a>
 
     @if (home?.resumeUrl) {
-      <a
-        [href]="resumeUrl(home.resumeUrl)"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="resume-btn"
-      >
-        Resume
-      </a>
+      <a [href]="resumeUrl(home.resumeUrl)" target="_blank" rel="noopener noreferrer" class="resume-btn">Resume</a>
+    }
+    @if (auth.user()) {
+      <a routerLink="/dashboard" class="resume-btn">Dashboard</a>
+      <button type="button" class="logout-btn" (click)="auth.logout()">Logout</button>
+    } @else {
+      <a routerLink="/login" class="resume-btn">Admin Login</a>
     }
   </nav>
 </header>

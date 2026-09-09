@@ -86,7 +86,7 @@ input:not([type="range"]):focus {
   box-shadow: 0 0 0 3px rgba(20, 184, 166, .08);
 }
 
-/* Range */
+
 
 input[type="range"] {
   width: 100%;
@@ -102,7 +102,7 @@ small {
   font-size: 13px;
 }
 
-/* Actions */
+
 
 .actions {
   display: flex;

@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
 import { IContact } from '../../core/models/contact.model';
 import { ContactService } from '../../core/services/contact-service';
 
@@ -11,16 +10,11 @@ import { ContactService } from '../../core/services/contact-service';
   styleUrl: './messages.css',
 })
 export class Messages implements OnInit {
-
   messages: IContact[] = [];
-
   successMessage = '';
   errorMessage = '';
 
-  constructor(
-    private contactService: ContactService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private readonly contactService: ContactService) {}
 
   ngOnInit(): void {
     this.getMessages();
@@ -30,20 +24,14 @@ export class Messages implements OnInit {
     this.contactService.getMessages().subscribe({
       next: (data) => {
         this.messages = data;
-
-        this.cdr.detectChanges();
       },
-
       error: () => {
         this.errorMessage = 'Failed to load messages';
-
-        this.cdr.detectChanges();
       },
     });
   }
 
   deleteMessage(id: string): void {
-
     if (!confirm('Are you sure you want to delete this message?')) {
       return;
     }
@@ -54,20 +42,15 @@ export class Messages implements OnInit {
     this.contactService.deleteMessage(id).subscribe({
       next: () => {
         this.successMessage = 'Message deleted successfully';
-
         this.getMessages();
       },
-
       error: () => {
         this.errorMessage = 'Failed to delete message';
-
-        this.cdr.detectChanges();
       },
     });
   }
 
   markAsRead(message: IContact): void {
-
     if (!message._id || !message.unread) {
       return;
     }
@@ -75,14 +58,9 @@ export class Messages implements OnInit {
     this.contactService.markAsRead(message._id).subscribe({
       next: () => {
         message.unread = false;
-
-        this.cdr.detectChanges();
       },
-
       error: () => {
         this.errorMessage = 'Failed to mark message as read';
-
-        this.cdr.detectChanges();
       },
     });
   }

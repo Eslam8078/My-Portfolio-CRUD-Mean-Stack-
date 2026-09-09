@@ -16,16 +16,14 @@
     <div class="form-group">
       <label>Name</label>
       <input formControlName="name" type="text" placeholder="Enter your name" />
-
       @if (myForm.controls.name.touched && myForm.controls.name.invalid) {
         <small>Name is required</small>
       }
     </div>
 
     <div class="form-group">
-      <label>Title</label>
-      <input formControlName="title" type="text" placeholder="Enter your title" />
-
+      <label>Professional Title</label>
+      <input formControlName="title" type="text" placeholder="Enter your professional title" />
       @if (myForm.controls.title.touched && myForm.controls.title.invalid) {
         <small>Title is required</small>
       }
@@ -33,11 +31,25 @@
 
     <div class="form-group">
       <label>Description</label>
-      <textarea formControlName="description" rows="6" placeholder="Enter your description"></textarea>
-
+      <textarea formControlName="description" rows="6" placeholder="Enter your professional summary"></textarea>
       @if (myForm.controls.description.touched && myForm.controls.description.invalid) {
         <small>Description is required</small>
       }
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input formControlName="email" type="email" placeholder="your@email.com" />
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input formControlName="phone" type="tel" placeholder="Your phone number" />
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input formControlName="location" type="text" placeholder="City, Country" />
     </div>
 
     <div class="form-group">
@@ -52,8 +64,7 @@
 
     <div class="form-group">
       <label>Profile Image</label>
-      <input type="file" accept="image/*" (change)="onImageChange($event)" />
-
+      <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" (change)="onImageChange($event)" />
       @if (myForm.controls.image.value) {
         <small>Selected: {{ myForm.controls.image.value?.name }}</small>
       }
@@ -61,8 +72,7 @@
 
     <div class="form-group">
       <label>Resume</label>
-      <input type="file" accept=".pdf" (change)="onResumeChange($event)" />
-
+      <input type="file" accept=".pdf,application/pdf" (change)="onResumeChange($event)" />
       @if (myForm.controls.resume.value) {
         <small>Selected: {{ myForm.controls.resume.value?.name }}</small>
       }

@@ -1,27 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { ISkill } from '../models/skills.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SkillsService {
-  constructor(private http: HttpClient) {}
-  private apiURL = 'http://localhost:3000/api/skills';
+  private readonly apiUrl = `${environment.apiBaseUrl}/skills`;
 
-getSkills() {
-    return this.http.get<ISkill[]>(this.apiURL, { params: { t: Date.now() } });
+  constructor(private readonly http: HttpClient) {}
+
+  getSkills() {
+    return this.http.get<ISkill[]>(this.apiUrl, { params: { t: Date.now() } });
   }
+
   getSkillById(id: string) {
-    return this.http.get<ISkill>(`${this.apiURL}/${id}`);
+    return this.http.get<ISkill>(`${this.apiUrl}/${id}`);
   }
+
   addSkill(skill: ISkill) {
-    return this.http.post<ISkill>(this.apiURL, skill);
+    return this.http.post<ISkill>(this.apiUrl, skill);
   }
+
   updateSkill(id: string, skill: ISkill) {
-    return this.http.put<ISkill>(`${this.apiURL}/${id}`, skill);
+    return this.http.put<ISkill>(`${this.apiUrl}/${id}`, skill);
   }
+
   deleteSkill(id: string) {
-    return this.http.delete(`${this.apiURL}/${id}`);
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

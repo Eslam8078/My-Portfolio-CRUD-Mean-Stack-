@@ -3,6 +3,9 @@ export interface IHome {
   name: string;
   title: string;
   description: string;
+  email?: string;
+  phone?: string;
+  location?: string;
   github?: string;
   linkedin?: string;
   imageUrl?: string;

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ISkill } from '../../core/models/skills.model';
 import { SkillsService } from '../../core/services/skills-service';
 
@@ -12,19 +12,17 @@ export class Skills implements OnInit {
   loading = true;
   errorMessage = '';
 
-  constructor(private skillsService: SkillsService, private cdr: ChangeDetectorRef) {}
+  constructor(private readonly skillsService: SkillsService) {}
 
   ngOnInit(): void {
     this.skillsService.getSkills().subscribe({
       next: (data) => {
-        this.skills = data ;
+        this.skills = data;
         this.loading = false;
-        this.cdr.detectChanges();
       },
       error: () => {
         this.loading = false;
         this.errorMessage = 'Unable to load skills. Please try again.';
-        this.cdr.detectChanges();
       },
     });
   }

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { SkillsService } from '../../../core/services/skills-service';
@@ -15,8 +15,7 @@ export class SkillsAdd implements OnInit {
   errorMessage = '';
 
   constructor(
-    private skillsService: SkillsService,
-    private cdr: ChangeDetectorRef
+    private skillsService: SkillsService
   ) {}
 
   ngOnInit(): void {
@@ -44,11 +43,9 @@ export class SkillsAdd implements OnInit {
       next: () => {
         this.successMessage = 'Skill added successfully';
         this.myForm.reset({ level: 50 });
-        this.cdr.detectChanges();
       },
       error: () => {
         this.errorMessage = 'Failed to add skill';
-        this.cdr.detectChanges();
       },
     });
   }

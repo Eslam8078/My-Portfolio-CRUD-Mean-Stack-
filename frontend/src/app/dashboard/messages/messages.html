@@ -1,7 +1,7 @@
 <section class="messages-dashboard">
   <div class="container">
 
-    <!-- Header -->
+    
     <div class="header">
       <div>
         <h1>Messages</h1>
@@ -16,7 +16,7 @@
       }
     </div>
 
-    <!-- Success Message -->
+    
     @if (successMessage) {
       <div class="alert success">
         <span>✓</span>
@@ -24,7 +24,7 @@
       </div>
     }
 
-    <!-- Error Message -->
+    
     @if (errorMessage) {
       <div class="alert error">
         <span>!</span>
@@ -32,7 +32,7 @@
       </div>
     }
 
-    <!-- Empty State -->
+    
     @if (!messages.length) {
 
       <div class="empty-state">
@@ -49,7 +49,7 @@
 
     } @else {
 
-      <!-- Messages -->
+      
       <div class="messages-list">
 
         @for (message of messages; track message._id) {
@@ -60,12 +60,12 @@
             (click)="markAsRead(message)"
           >
 
-            <!-- Unread Indicator -->
+            
             @if (message.unread) {
               <span class="unread-indicator"></span>
             }
 
-            <!-- Message Header -->
+            
             <div class="message-header">
 
               <div class="message-info">
@@ -96,13 +96,13 @@
 
               </div>
 
-              <!-- Actions -->
+              
               <div
                 class="actions"
                 (click)="$event.stopPropagation()"
               >
 
-                <!-- Reply -->
+                
                 <a
                   class="reply-btn"
                   [href]="
@@ -116,7 +116,7 @@
                   Reply
                 </a>
 
-                <!-- Delete -->
+                
                 <button
                   type="button"
                   class="delete-btn"
@@ -130,7 +130,7 @@
 
             </div>
 
-            <!-- Message Body -->
+            
             <div class="message-content">
 
               <p class="message-body">
@@ -139,7 +139,7 @@
 
             </div>
 
-            <!-- Message Footer -->
+            
             <div class="message-footer">
 
               @if (message.createdAt) {

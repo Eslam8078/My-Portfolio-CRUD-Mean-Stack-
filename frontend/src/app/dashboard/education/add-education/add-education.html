@@ -1,7 +1,7 @@
 <section class="education-form">
   <div class="container">
 
-    <!-- Header -->
+    
     <div class="header">
       <h1>Add Education</h1>
 
@@ -10,27 +10,27 @@
       </p>
     </div>
 
-    <!-- Success -->
+    
     @if (successMessage) {
       <div class="success-message">
         {{ successMessage }}
       </div>
     }
 
-    <!-- Error -->
+    
     @if (errorMessage) {
       <div class="error-message">
         {{ errorMessage }}
       </div>
     }
 
-    <!-- Form -->
+    
     <form
       [formGroup]="myForm"
       (ngSubmit)="onSubmit()"
     >
 
-      <!-- Degree -->
+      
       <div class="form-group">
 
         <label for="degree">
@@ -55,7 +55,7 @@
 
       </div>
 
-      <!-- University -->
+      
       <div class="form-group">
 
         <label for="university">
@@ -80,7 +80,7 @@
 
       </div>
 
-      <!-- Period -->
+      
       <div class="form-group">
 
         <label for="period">
@@ -105,7 +105,7 @@
 
       </div>
 
-      <!-- Location -->
+      
       <div class="form-group">
 
         <label for="location">
@@ -130,7 +130,7 @@
 
       </div>
 
-      <!-- Description -->
+      
       <div class="form-group">
 
         <label for="description">
@@ -155,7 +155,7 @@
 
       </div>
 
-      <!-- Actions -->
+      
       <div class="form-actions">
 
         <button
